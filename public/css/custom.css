@@ -1,0 +1,14 @@
+.image-left {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.image-right {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.image-center {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
