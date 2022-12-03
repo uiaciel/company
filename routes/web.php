@@ -19,7 +19,7 @@ Route::get('/test', function () {
     return view('welcome');
 });
 
-Route::get('/{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'listcategory']);
+Route::get('/{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
 Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
 
 Auth::routes(['register' => false]);

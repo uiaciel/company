@@ -5,8 +5,8 @@
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <!-- <img class="w-100" src="img/carousel-1.jpg" alt="Image" /> -->
-          <img class="w-100" src="/coal-sge-banner.jpg" alt="Image" />
+          
+          <img class="w-100" src="/img/coal-sge-banner.jpg" alt="Image" />
           <div class="carousel-caption">
             <div class="container">
               <div class="row justify-content-center">
@@ -35,7 +35,7 @@
         </div>
         <div class="carousel-item">
           <!-- <img class="w-100" src="img/carousel-2.jpg" alt="Image" /> -->
-          <img class="w-100" src="/coal-sge-banner.jpg" alt="Image" />
+          <img class="w-100" src="/img/coal-sge-banner.jpg" alt="Image" />
           <div class="carousel-caption">
             <div class="container">
               <div class="row justify-content-center">
@@ -75,35 +75,35 @@
         <div class="row g-4">
             <div class="d-flex flex-sm-row flex-column justify-content-lg-between">
                 <div class="team-item position-relative p-2">
-                    <img class="img-fluid" src="https://sumberglobalenergy.co.id/images/3.jpeg" alt="" />
+                    <img class="img-fluid" src="/img/3.jpeg" alt="" />
                     <div class="team-text bg-white p-4">
                       <h6><a href="/en/pt-sumber-mineral-global-abadi" class="text-dark">PT Sumber Mineral Global Abadi</a></h6>
 
                     </div>
                   </div>
                   <div class="team-item position-relative p-2">
-                    <img class="img-fluid" src="https://sumberglobalenergy.co.id/images/3.jpeg" alt="" />
+                    <img class="img-fluid" src="/img/3.jpeg" alt="" />
                     <div class="team-text bg-white p-4">
                       <h6><a href="/en/pt-mandau-batu-alam" class="text-dark">PT Mandau Batu Alam</a></h6>
 
                     </div>
                   </div>
                   <div class="team-item position-relative p-2">
-                    <img class="img-fluid" src="https://sumberglobalenergy.co.id/images/3.jpeg" alt="" />
+                    <img class="img-fluid" src="/img/3.jpeg" alt="" />
                     <div class="team-text bg-white p-4">
                       <h6><a href="/en/pt-angkasa-nusa-graha" class="text-dark">PT Angkasa Nusa Graha</a></h6>
 
                     </div>
                   </div>
                   <div class="team-item position-relative p-2">
-                    <img class="img-fluid" src="https://sumberglobalenergy.co.id/images/3.jpeg" alt="" />
+                    <img class="img-fluid" src="/img/3.jpeg" alt="" />
                     <div class="team-text bg-white p-4">
                       <h6><a href="/en/pt-transmarina-pelabuhan-indonesia" class="text-dark">PT Transmarina Pelabuhan Indonesia</a></h6>
 
                     </div>
                   </div>
                   <div class="team-item position-relative p-2">
-                    <img class="img-fluid" src="https://sumberglobalenergy.co.id/images/3.jpeg" alt="" />
+                    <img class="img-fluid" src="/img/3.jpeg" alt="" />
                     <div class="team-text bg-white p-4">
                       <h6><a href="/en/hineni-resources-pte-ltd" class="text-dark">Hineni Resources Pte, Ltd</a></h6>
 
@@ -125,7 +125,7 @@
           >
             <img
               class="position-absolute w-100 h-100"
-              src="/batubara-tank.jpeg"
+              src="/img/batubara-tank.jpeg"
               alt=""
               style="object-fit: cover"
             />
@@ -194,7 +194,7 @@
     <div class="row g-0">
       <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.1s">
         <div class="position-relative">
-          <img class="img-fluid w-100" src="/batu-bara.jpg" alt="" />
+          <img class="img-fluid w-100" src="/img/batu-bara.jpg" alt="" />
           <div class="facts-overlay">
             <h1 class="display-1">01</h1>
             <h4 class="text-white mb-3">{{ __('home.coal') }}</h4>
@@ -206,7 +206,7 @@
       </div>
       <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.3s">
         <div class="position-relative">
-          <img class="img-fluid w-100" src="/minerals.jpg" alt="" />
+          <img class="img-fluid w-100" src="/img/minerals.jpg" alt="" />
           <div class="facts-overlay">
             <h1 class="display-1">02</h1>
             <h4 class="text-white mb-3">{{ __('home.mineral') }}</h4>
@@ -218,7 +218,7 @@
       </div>
       <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.5s">
         <div class="position-relative">
-          <img class="img-fluid w-100" src="/rare-earth-metals.jpg" alt="" />
+          <img class="img-fluid w-100" src="/img/rare-earth-metals.jpg" alt="" />
           <div class="facts-overlay">
             <h1 class="display-1">03</h1>
             <h4 class="text-white mb-3">{{ __('home.rare') }}</h4>
@@ -230,7 +230,7 @@
       </div>
       <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.7s">
         <div class="position-relative">
-          <img class="img-fluid w-100" src="/renewable.jpg" alt="" />
+          <img class="img-fluid w-100" src="/img/renewable.jpg" alt="" />
           <div class="facts-overlay">
             <h1 class="display-1">04</h1>
             <h4 class="text-white mb-3">{{ __('home.renewable') }}</h4>
@@ -356,7 +356,7 @@
     </div>
   </div>
 
-  <div class="container-fluid my-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(/sge-banner.png) center center no-repeat;background-size: cover; visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+  <div class="container-fluid my-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(/img/sge-banner.png) center center no-repeat;background-size: cover; visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
     <div class="container text-center py-5">
         <h1 class="display-4 text-white  slideInDown mb-4">{{ __('home.vision') }}</h1>
         <p class="text-white">We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.

@@ -6,14 +6,19 @@
                 @csrf
                 @method('PUT')
                 <div class="row mb-2 mb-xl-3">
+                    <div class="col-auto d-none d-sm-block">
+                        <h3><strong>Edit {{ __('admincp.posts') }}</strong> </h3>
+                    </div>
+                    <div class="col-auto ms-auto text-end mt-n1">
+                        
+                        <a href="{{ route('showpost', [$post->lang, $post->slug]) }}" class="btn btn-md btn-primary">View Posts</a>
+                        
+                    </div>
+                </div>
+                <div class="row mb-2 mb-xl-3">
                     <div class="col-xl-8">
                         <div class="card border-0 shadow rounded">
-                            <div class="card-header bg-dark text-white">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="text-white">Edit Post</h4>
-                                    <a href="{{ route('showpost', [$post->lang, $post->slug]) }}">View Posts</a>
-                                </div>
-                            </div>
+                            
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Judul</label>
@@ -27,22 +32,14 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     @foreach ($post->images as $image)
                                         @if ($loop->first)
                                             <img src="/storage/{{ $image->path }}" class="card-img-top">
                                         @endif
                                     @endforeach
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">Excerpt</label>
-                                    <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="3">{{ $post->excerpt }}</textarea>
-                                </div>
-                                @error('excerpt')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                </div> --}}
+                                
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Konten</label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="10" id="tinymce">{{ $post->content }}</textarea>
@@ -52,13 +49,51 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
+                                <div class="mb-3">
+                                    <label for="" class="form-label fw-bold">Excerpt</label>
+                                    <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="3">{{ $post->excerpt }}</textarea>
+                                </div>
+                                @error('excerpt')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                                <label for="" class="form-label fw-bold">Layout Option</label>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="custom-control custom-radio image-checkbox">
+                                            <input type="radio" class="custom-control-input" id="ck2a" name="ck2">
+                                            <label class="custom-control-label" for="ck2a">
+                                                <img src="/img/layout-full.png" alt="#" class="img-fluid">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="custom-control custom-radio image-checkbox">
+                                            <input type="radio" class="custom-control-input" id="ck2b" name="ck2">
+                                            <label class="custom-control-label" for="ck2b">
+                                                <img src="/img/layout-sidebar.png" alt="#" class="img-fluid">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="custom-control custom-radio image-checkbox">
+                                            <input type="radio" class="custom-control-input" id="ck2c" name="ck2">
+                                            <label class="custom-control-label" for="ck2c">
+                                                <img src="/img/layout-article.png" alt="#" class="img-fluid">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4">
                         <div class="card border-0 shadow rounded">
-                            <div class="card-header mb-3 bg-dark text-white">
-                                <h4 class="text-white">Setting</h4>
+                            <div class="card-header bg-dark text-white">
+                                SETTING
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">

@@ -112,12 +112,12 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
-    public function listcategory($lang)
+    public function mediacenter($lang)
     {
 
         $post = Post::where('lang', $lang)->where('status', 'Publish')->where('type', 'Blog')->get();
 
-        return view('frontend.kategori', [
+        return view('frontend.mediacenter', [
             'blogs' => $post
         ]);
     }

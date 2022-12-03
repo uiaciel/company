@@ -125,7 +125,7 @@
 ">
         <a href="/" class="navbar-brand d-flex align-items-center">
             <h1 class="m-0">
-                <img src="https://sumberglobalenergy.co.id/new-revisi/img/LOGO-SGE-TBK.png"
+                <img src="https://sumberglobalenergy.co.id/img/LOGO-SGE-TBK.png"
                     class="logo"alt="Logo">
             </h1>
         </a>
