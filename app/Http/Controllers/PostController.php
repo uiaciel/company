@@ -19,7 +19,6 @@ class PostController extends Controller
         return view('admincp.posts.index', [
             'posts' => $posts
         ]);
-
     }
 
     public function create()
@@ -43,38 +42,43 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->content = $request->content;
-        $post->excerpt = $request->excerpt;
+
+        if ($request->except == NULL) {
+            $post->excerpt = Str::of($request->content)->words(30, ' ....');
+        } else {
+            $post->excerpt = $request->excerpt;
+        }
+
         $post->lang = $request->lang;
+        $post->layout = $request->layout;
         $post->id_category = $request->id_category;
         $post->date_gmt = $request->date_gmt;
         $post->status = $request->status;
         $post->type = $request->type;
         $post->save();
 
-        if($request->hasFile('images'))
-        {
+        if ($request->hasFile('images')) {
             foreach ($request->file('images') as $imagefile) {
                 $image = new Image;
-                $nama = time().'-'.$imagefile->getClientOriginalName();
+                $nama = time() . '-' . $imagefile->getClientOriginalName();
                 $path = $imagefile->storeAs('images', $nama, ['disk' => 'public']);
                 $image->path = $path;
                 $image->name = $request->name;
                 $image->caption = $request->caption;
                 $image->post_id = $post->id;
                 $image->save();
-              }
+            }
         }
 
-        if($request->hasFile('files'))
-        {
+        if ($request->hasFile('files')) {
             foreach ($request->file('files') as $docfile) {
-                
+
                 $originName = $docfile->getClientOriginalName();
                 $slugName = str_replace(' ', '_', $originName);
                 // $extension = $docfile->getClientOriginalExtension();
                 $size = $docfile->getSize();
 
-                $fileName = time().'_'.$slugName;
+                $fileName = time() . '_' . $slugName;
                 $docfile->move(public_path() . '/storage/files/', $fileName);
                 // $docfile->move(public_path('files'), $fileName);
                 $url = 'public/files/' . $fileName;
@@ -89,31 +93,28 @@ class PostController extends Controller
                 $doc->filesize = $size;
                 $doc->post_id = $post->id;
                 $doc->save();
-                
-              }
+            }
         }
 
-        if($request->type == 'Blog'){
+        if ($request->type == 'Blog') {
             return redirect()->route('posts.index')
-            ->with('success','Annoucement created successfully.');
+                ->with('success', 'Annoucement created successfully.');
         }
 
-        if($request->type == 'Announ'){
+        if ($request->type == 'Announ') {
             return redirect()->route('announs.index')
-            ->with('success','Annoucement created successfully.');
+                ->with('success', 'Annoucement created successfully.');
         }
 
-        if($request->type == 'Page'){
+        if ($request->type == 'Page') {
             return redirect()->route('pages.index')
-            ->with('success','Page created successfully.');
+                ->with('success', 'Page created successfully.');
         }
 
-        if($request->type == 'Report'){
+        if ($request->type == 'Report') {
             return redirect()->route('laporans.index')
-            ->with('success','Report created successfully.');
+                ->with('success', 'Report created successfully.');
         }
-
-
     }
 
     public function show(Post $post)
@@ -143,18 +144,17 @@ class PostController extends Controller
 
 
 
-        if($request->hasFile('images'))
-        {
+        if ($request->hasFile('images')) {
             foreach ($request->file('images') as $imagefile) {
                 $image = new Image;
-                $nama = time().'-'.$imagefile->getClientOriginalName();
+                $nama = time() . '-' . $imagefile->getClientOriginalName();
                 $path = $imagefile->storeAs('images', $nama, ['disk' => 'public']);
                 $image->path = $path;
                 $image->name = $request->name;
                 $image->caption = $request->caption;
                 $image->post_id = $id;
                 $image->save();
-              }
+            }
         }
 
         $post = Post::find($id);
@@ -162,7 +162,11 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->content = $request->content;
-        $post->excerpt = $request->excerpt;
+        if ($request->except == NULL) {
+            $post->excerpt = Str::of($request->content)->words(30, ' ....');
+        } else {
+            $post->excerpt = $request->excerpt;
+        }
         $post->lang = $request->lang;
         $post->id_category = $request->id_category;
         $post->date_gmt = $request->date_gmt;
@@ -170,12 +174,11 @@ class PostController extends Controller
         $post->type = $request->type;
         $post->update();
 
-        if($request->hasFile('files'))
-        {
+        if ($request->hasFile('files')) {
             foreach ($request->file('files') as $docfile) {
 
 
-                $nama = time().'-'.$docfile->getClientOriginalName();
+                $nama = time() . '-' . $docfile->getClientOriginalName();
 
                 // $ext = $docfile->getClientOriginalExtension();
                 $size = $docfile->getSize();
@@ -188,29 +191,28 @@ class PostController extends Controller
                 $doc->filesize = $size;
                 $doc->post_id = $id;
                 $doc->save();
-              }
+            }
         }
 
-        if($request->type == 'Blog'){
+        if ($request->type == 'Blog') {
             return redirect()->route('posts.index')
-            ->with('success','Annoucement updated successfully.');
+                ->with('success', 'Annoucement updated successfully.');
         }
 
-        if($request->type == 'Announ'){
+        if ($request->type == 'Announ') {
             return redirect()->route('announs.index')
-            ->with('success','Annoucement updated successfully.');
+                ->with('success', 'Annoucement updated successfully.');
         }
 
-        if($request->type == 'Page'){
+        if ($request->type == 'Page') {
             return redirect()->route('pages.index')
-            ->with('success','Page updated successfully.');
+                ->with('success', 'Page updated successfully.');
         }
 
-        if($request->type == 'Report'){
+        if ($request->type == 'Report') {
             return redirect()->route('laporans.index')
-            ->with('success','Report updated successfully.');
+                ->with('success', 'Report updated successfully.');
         }
-
     }
 
     public function destroy(Post $post)
@@ -218,30 +220,28 @@ class PostController extends Controller
         //delete post
         $post->delete();
 
-        if($post->type == 'Blog'){
+        if ($post->type == 'Blog') {
             return redirect()->route('posts.index')
-            ->with('success','Data Berhasil Dihapus!');
+                ->with('success', 'Data Berhasil Dihapus!');
         }
 
-         if($post->type == 'Announ'){
+        if ($post->type == 'Announ') {
             return redirect()->route('announs.index')
-            ->with('success','Data Berhasil Dihapus!');
+                ->with('success', 'Data Berhasil Dihapus!');
         }
 
-        if($post->type == 'Page'){
+        if ($post->type == 'Page') {
             return redirect()->route('pages.index')
-            ->with('success','Data Berhasil Dihapus!');
+                ->with('success', 'Data Berhasil Dihapus!');
         }
 
-        if($post->type == 'Report'){
+        if ($post->type == 'Report') {
             return redirect()->route('laporans.index')
-            ->with('success','Data Berhasil Dihapus!');
+                ->with('success', 'Data Berhasil Dihapus!');
         }
-
-
     }
 
-    public function showpost ($lang, $slug)
+    public function showpost($lang, $slug)
     {
         $post = Post::where('lang', $lang)->where('slug', $slug)->first();
 

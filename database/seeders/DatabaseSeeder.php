@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -37,15 +39,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-                'name' => 'News',
-                'slug' => 'News',
+            'name' => 'News',
+            'slug' => 'News',
         ]);
 
         DB::table('categories')->insert(
-        [
-            'name' => 'Subsidiaries',
-            'slug' => 'subsidiaries',
-        ]);
+            [
+                'name' => 'Subsidiaries',
+                'slug' => 'subsidiaries',
+            ]
+        );
 
         DB::table('posts')->insert([
             'user_id' => 1,
@@ -54,6 +57,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Page',
+            'layout' => 'Full',
 
             'content' => '<p>We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.</p>
             <p>&nbsp;</p>
@@ -76,6 +80,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Page',
+            'layout' => 'Full',
 
             'content' => '<p>We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.</p>',
 
@@ -88,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Page',
+            'layout' => 'Full',
             'content' => '<p>On behalf of all our employees, I would like to take this opportunity to express my heartfelt thanks to you for supporting Sumber Global Energy (SGE) for the past 12 years.</p>
             <p>It is with great pleasure that SGE has been staying ahead in the coal industry. Our company has an important role in the growth of the coal trading in Indonesia. Even though we are a relatively new rising trading company, we have strong associations with some of the major customers in Indonesia and overseas.</p>
             <p>During the past years SGE has become almost important strategic partner of especially the small and medium scale coal mining concession holders We do believe that our clients&rsquo; success is our accomplishments as a professional coal trading company. Therefore we are grateful for all supports from all business partners and clients.</p>
@@ -102,6 +108,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Page',
+            'layout' => 'Full',
             'content' => '<p>Our company policies and procedures are in place to protect the rights of workers as well as the business interests of employers. We are committed to zero harm to people and the environment, because we believe that Health. Safety, Environment (HSE) and Community responsibilities are the foundation for sustainable our business.</p>
             <p>We have has a long-standing HSE commitment to the highest standards for the health and safety of our employees, customers. and contractors as well as to the protection of the environment in the communities in which we live and work because we want to be successful when it meets its targets toward the goal of zero harm and when it is a valued member of the community in which it operates.</p>',
 
@@ -113,6 +120,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'corporate-social-responsibility',
             'lang' => 'en',
             'status' => 'Publish',
+            'layout' => 'Full',
             'type' => 'Page',
             'content' => '<p>The Company&rsquo;s commitment to provide added value for the<br>community is realized through the implementation of the<br>Corporate Social Responsibility (CSR) program. In 2021, the<br>Company has implemented programs incorporated in Corporate<br>Social Responsibility with the following details:</p>
             <p>Kurban in Eid al-Adha</p>',
@@ -127,6 +135,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pemegang-saham-sger-setuju-peningkatan-rp-400-miliar-modal-dasar',
             'lang' => 'id',
             'status' => 'Publish',
+            'layout' => 'Sidebar',
             'type' => 'Blog',
             'date_gmt' => '2022-09-06',
             'id_category' => 1,
@@ -143,6 +152,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'id',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Sidebar',
             'date_gmt' => '2022-09-02',
             'id_category' => 1,
             'content' => '<p>JAKARTA. PT Sumber Mineral Global Abadi (SMGA), salah satu anak usaha PT Sumber Global Energy Tbk (SGER), telah memperoleh suntikan modal senilai Rp15 miliar.</p>
@@ -161,6 +171,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'id',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Sidebar',
             'id_category' => 1,
             'date_gmt' => '2022-06-24',
             'content' => '<p>JAKARTA. PT Sumber Global Energy Tbk (SGER) mengumumkan rencana pembagian saham bonus sebanyak 2,11 miliar lembar dengan nilai nominal Rp50 per lembar.</p>
@@ -180,6 +191,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Full',
             'id_category' => 3,
             'content' => "<p>PT. SUMBER MINERAL GLOBAL ABADI is a subsidiary of the company that handle the domestic trading for coal, nickel and other commodities.</p>
             <p>SMGA also serves as a holding for the company's investment in several new and renewable energy development activities.</p>
@@ -195,6 +207,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Full',
             'id_category' => 3,
             'content' => "<p>Engaged in mining contractors for coaL and other minerals to support the company's trading activities.</p>",
 
@@ -208,6 +221,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Full',
             'id_category' => 3,
             'content' => "PT Angkasa Nusa Graha",
 
@@ -221,6 +235,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Full',
             'id_category' => 3,
             'content' => "PT Transmarina Pelabuhan Indonesia",
 
@@ -234,6 +249,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Blog',
+            'layout' => 'Full',
             'id_category' => 3,
             'content' => "PT Hineni Resources Pte, Ltd",
 
@@ -247,6 +263,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'type' => 'Career',
+            'layout' => 'Full',
             'content' => "<p><strong>Qualifications:</strong><br>Education min Bachelor (S1) / Master Degree Majoring in Economics / Accounting (Preferably)<br>Max. age 50 years old (Preferably)<br>Experience in Corporate Finance at least 5 years at Manager level, Preferably&nbsp;<br>Have experience related Public Company Regulations (OJK, IDX)<br>Have good analytical skills, especially for restructuring, M&amp;A<br>Have good written and spoken English, a plus if able to speak Mandarin</p>
             <p><strong>Responsibilities :</strong></p>
             <ul>
@@ -262,5 +279,14 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        $menus = [
+            ['title' => 'Home', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/'],
+            ['title' => 'About Us', 'parent_id' => 0, 'sort_order' => 1, 'slug' => '/about'],
+            ['title' => 'Company Profile', 'parent_id' => 2, 'sort_order' => 2, 'slug' => '/profile'],
+            ['title' => 'Visi', 'parent_id' => 2, 'sort_order' => 3, 'slug' => '/vision'],
+            ['title' => 'Media Center', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/contact'],
+        ];
+
+        Menu::insert($menus);
     }
 }

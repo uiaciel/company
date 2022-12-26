@@ -39,15 +39,21 @@
                                         <td>{{ $posts->type }}</td>
                                         <td>{{ $posts->status }}</td>
                                         <td>
-                                            <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
-                                                action="{{ route('posts.destroy', $posts->id) }}" method="POST">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="{{ route('posts.edit', $posts->id) }}"
                                                     class="btn btn-sm btn-primary">{{ __('admincp.edit') }}</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
-                                            </form>
+                                                <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
+                                                    action="{{ route('posts.destroy', $posts->id) }}" method="POST">
+
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
+                                                </form>
+
+                                            </div>
+
+
                                         </td>
                                     </tr>
                                 @empty

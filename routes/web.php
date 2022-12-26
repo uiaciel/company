@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-Route::get('locale/{locale}', function($locale){
+Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
 });
@@ -27,7 +27,7 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', [App\Http\Controllers\AdmincpController::class, 'index'])->name('home');
-    Route::get('/admincp', [\App\Http\Controllers\AdmincpController::class,'admincp'])->name('admincp');
+    Route::get('/admincp', [\App\Http\Controllers\AdmincpController::class, 'admincp'])->name('admincp');
     Route::resource('/admincp/category', \App\Http\Controllers\CategoryController::class);
     Route::resource('/admincp/posts', \App\Http\Controllers\PostController::class);
     Route::resource('/admincp/announs', \App\Http\Controllers\AnnounController::class);
@@ -37,10 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/image', \App\Http\Controllers\ImageController::class);
 
     Route::resource('/doc', \App\Http\Controllers\DocController::class);
+    Route::resource('/admincp/menu', \App\Http\Controllers\MenuController::class);
 
-    Route::post('image/upload', [HomeController::class, 'upload'])->name('image.upload');
-
-    
+    Route::post('image/upload', [\App\Http\Controllers\HomeController::class, 'upload'])->name('image.upload');
 });
 
 Route::group(['middleware' => ['web']], function () {
@@ -68,5 +67,3 @@ Route::get('/esg/csr', function () {
 Route::get('/publicoffering', function () {
     return view('frontend.publicoffering');
 });
-
-

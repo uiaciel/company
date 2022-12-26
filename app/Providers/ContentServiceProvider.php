@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Doc;
+use App\Models\Menu;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Goutte\Client;
@@ -29,7 +30,7 @@ class ContentServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function($view) {
+        view()->composer('*', function ($view) {
 
             $client = new Client();
             // $url = 'https://www.google.com/finance/quote/SGER:IDX';
@@ -43,7 +44,7 @@ class ContentServiceProvider extends ServiceProvider
             // $data = $page->filter('.YMlKec.fxKbKc')->text();
             $cal = $page->filter('span.c')->text();
             // $cal = $page->filter('.text-body--3.text-red')->text();
-            $tanda = substr($cal,0,1);
+            $tanda = substr($cal, 0, 1);
             $data = $page->filter('span.p')->text();
             $up = $page->filter('span.v')->text();
 
@@ -52,22 +53,23 @@ class ContentServiceProvider extends ServiceProvider
             $modal = Post::where('status', 'Publish')->where('type', 'Announ')->orderBy('created_at', 'desc')->first();
 
             $annual = Post::OrderBy('updated_at', 'desc')
-                    ->where('status', 'Publish')
-                    ->where('type', 'Report')
-                    ->where('id_category', 4)
-                    ->get();
+                ->where('status', 'Publish')
+                ->where('type', 'Report')
+                ->where('id_category', 4)
+                ->get();
 
             $financial = Post::OrderBy('date_gmt', 'desc')
                 ->where('status', 'Publish')
                 ->where('type', 'Report')
                 ->where('id_category', 5)
                 ->get();
-                
-            
+
+
 
 
             $view->with([
                 'category' => Category::all(),
+                'menus' => Menu::all(),
                 'announs' => Post::where('status', 'Publish')->where('type', 'Announ')->limit(3)->get(),
                 'laporans' => Post::Orderby('date_gmt', 'desc')->where('status', 'Publish')->where('type', 'Report')->limit(4)->get(),
                 'financial' => $financial,

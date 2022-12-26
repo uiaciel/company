@@ -9,14 +9,14 @@
                         <h3><strong>Add New {{ __('admincp.posts') }}</strong> </h3>
                     </div>
                     <div class="col-auto ms-auto text-end mt-n1">
-                        <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
+                        <button type="submit" class="btn btn-md btn-primary">PUBLISH</button>
                         <button type="reset" class="btn btn-md btn-warning">RESET</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
-                            
+
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Judul</label>
@@ -29,10 +29,10 @@
                                         </div>
                                     @enderror
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Konten</label>
-                                    <textarea class="form-control tinymce @error('content') is-invalid @enderror" name="content" rows="10" id="tinymce"></textarea>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="10" id="tinymce"></textarea>
                                 </div>
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -42,7 +42,7 @@
 
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Excerpt</label>
-                                    <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="3"></textarea>
+                                    <textarea class="tinymce form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="3"></textarea>
                                 </div>
                                 @error('excerpt')
                                     <div class="alert alert-danger mt-2">
@@ -53,35 +53,38 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2a" name="ck2">
+                                            <input type="radio" class="custom-control-input" value="full" id="ck2a"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2a">
-                                                <img src="/img/layout-full.png" alt="#" class="img-fluid">
+                                                <img src="/img/full-side.gif" alt="#" class="img-fluid">
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2b" name="ck2">
+                                            <input type="radio" class="custom-control-input" value="sidebar" id="ck2b"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2b">
-                                                <img src="/img/layout-sidebar.png" alt="#" class="img-fluid">
+                                                <img src="/img/page-side.gif" alt="#" class="img-fluid">
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2c" name="ck2">
+                                            <input type="radio" class="custom-control-input" value="article" id="ck2c"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2c">
-                                                <img src="/img/layout-article.png" alt="#" class="img-fluid">
+                                                <img src="/img/article-side.gif" alt="#" class="img-fluid">
                                             </label>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
@@ -89,31 +92,53 @@
                                 SETTING
                             </div>
                             <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="" class="form-label fw-bold">KATEGORI</label>
+                                        <select class="form-control  @error('id_category') is-invalid @enderror"
+                                            name="id_category">
+                                            @foreach ($category as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="form-label fw-bold">BAHASA</label>
+                                        <select class="form-control @error('lang') is-invalid @enderror" name="lang">
+                                            <option value="en">English</option>
+                                            <option value="id">Indonesia</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                @error('id_category')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">TANGGAL</label>
-                                    <input type="date" id="date" class="form-control @error('gmt_date') is-invalid @enderror"
-                                        name="date_gmt" aria-describedby="helpId" placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
+                                    <input type="date" id="date"
+                                        class="form-control @error('gmt_date') is-invalid @enderror" name="date_gmt"
+                                        aria-describedby="helpId" placeholder="">
+                                    {{-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
                                 </div>
                                 @error('date_gmt')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">STATUS</label>
-                                    <select class="form-control @error('status') is-invalid @enderror" name="status">
-                                        
-                                        <option value="publish">Publish</option>
-                                        <option value="draf">Draf</option>
-                                    </select>
-                                </div>
+                                <select class="form-control @error('status') is-invalid @enderror" name="status" hidden>
+
+                                    <option value="publish">Publish</option>
+                                    {{-- <option value="draf">Draf</option> --}}
+                                </select>
                                 @error('status')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                
+
                                 <div class="form-group mb-3">
                                     <label class="form-label fw-bold">Images Feature</label>
                                     <input type="file" class="form-control @error('images') is-invalid @enderror"
@@ -126,29 +151,13 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <img id="imgPreview" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" alt="preview image" class="img-fluid">
+                                    <img id="imgPreview"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                                        alt="preview image" class="img-fluid">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">KATEGORI</label>
-                                    <select class="form-control  @error('id_category') is-invalid @enderror" name="id_category">
-                                        @foreach ($category as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @error('id_category')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                                <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">Language</label>
-                                    <select class="form-control @error('lang') is-invalid @enderror" name="lang">
-                                        <option value="en">English</option>
-                                        <option value="id">Indonesia</option>
-                                    </select>
-                                </div>
-                                
+
+
+
                                 <div class="mb-3" hidden>
                                     <label for="" class="form-label fw-bold">Tipe</label>
                                     <select class="form-control @error('type') is-invalid @enderror" name="type">
@@ -160,7 +169,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                
+
                             </div>
                         </div>
                     </div>

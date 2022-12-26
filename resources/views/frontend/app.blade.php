@@ -37,15 +37,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Libraries Stylesheet -->
     <link href="/lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css"
-        rel="stylesheet" />
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- Template Stylesheet -->
     <link href="/css/custom.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
-    
+
     <style>
         p {
             color: black;
@@ -107,7 +106,7 @@
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center">
-                    
+
                     <a class="btn btn-square border-end border-start" href=""><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square border-end" href=""><i class="fab fa-twitter"></i></a>
@@ -119,14 +118,15 @@
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->
+
+
     <nav class="navbar navbar-expand-lg text-white navbar-light sticky-top px-4 px-lg-5 py-lg-0"
         style="
   background-color: #1E4592;
 ">
         <a href="/" class="navbar-brand d-flex align-items-center">
             <h1 class="m-0">
-                <img src="https://sumberglobalenergy.co.id/img/LOGO-SGE-TBK.png"
-                    class="logo"alt="Logo">
+                <img src="https://sumberglobalenergy.co.id/img/LOGO-SGE-TBK.png" class="logo"alt="Logo">
             </h1>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -187,6 +187,53 @@
             </div>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @foreach ($menus->where('parent_id', 0) as $menu)
+                        @php
+                            $children = $menus->where('parent_id', $menu->id);
+                        @endphp
+
+                        @if (!$children->isEmpty())
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ $menu->title }}
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    @foreach ($children->sortBy('sort_id') as $child)
+                                        <li><a class="dropdown-item"
+                                                href="{{ $child->slug }}">{{ $child->title }}</a>
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="{{ $menu->slug }}">{{ $menu->title }}</a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <!-- Navbar End -->
     <div id="app">
         @yield('content')
@@ -214,10 +261,12 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">{{ __('home.headoffice') }}</h4>
                     <p class="text-light">Graha BIP 2nd Floor</p>
-                    <p class="text-light">Jl. Gatot Subroto Kav. 23 Karet Semanggi, Setiabudi, Daerah Khusus Ibukota Jakarta 12930
+                    <p class="text-light">Jl. Gatot Subroto Kav. 23 Karet Semanggi, Setiabudi, Daerah Khusus Ibukota
+                        Jakarta 12930
                     </p>
                     <p class="text-light"><i class="fa fa-phone-alt me-3"></i>(+6221) 2500120</p>
-                    <p class="text-light" style="font-size: 0.9rem !important;"><i class="fa fa-envelope me-3"></i>info@sumberglobalenergy.com</p>
+                    <p class="text-light" style="font-size: 0.9rem !important;"><i
+                            class="fa fa-envelope me-3"></i>info@sumberglobalenergy.com</p>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -271,24 +320,26 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
     <script src="/lib/wow/wow.min.js"></script>
     <script src="/lib/easing/easing.min.js"></script>
     <script src="/lib/waypoints/waypoints.min.js"></script>
     <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
-     @if (empty($modal->id))
-     @else
-    <script type="text/javascript">
-        window.onload = function() {
-            OpenBootstrapPopup();
-        };
+    @if (empty($modal->id))
+    @else
+        <script type="text/javascript">
+            window.onload = function() {
+                OpenBootstrapPopup();
+            };
 
-        function OpenBootstrapPopup() {
-            $("#modal{{ $modal->id }}").modal('show');
-        }
-
-    </script>
+            function OpenBootstrapPopup() {
+                $("#modal{{ $modal->id }}").modal('show');
+            }
+        </script>
     @endif
 </body>
 

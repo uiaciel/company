@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +18,7 @@
     <script src="https://kit.fontawesome.com/1bfbc97117.js" crossorigin="anonymous"></script>
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
+
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
     <div id="app" class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
@@ -44,10 +46,10 @@
                                             <sup><small class="badge bg-primary text-uppercase">SGE-v1</small></sup>
                                         </span>
                                     </a>
-                                    
+
                                     <ul class="sidebar-nav">
                                         <li class="sidebar-header">
-                                           Menus
+                                            Menus
                                         </li>
 
                                         <li class="sidebar-item">
@@ -91,6 +93,14 @@
                                                 {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
                                             </a>
                                         </li>
+
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="{{ route('menu.index') }}">
+                                                <i class="fa-solid fa-book"></i>
+                                                <span class="align-middle">Menu</span>
+                                                {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
+                                            </a>
+                                        </li>
                                     </ul>
                                     <div class="sidebar-cta">
                                         <div class="sidebar-cta-content">
@@ -99,8 +109,8 @@
                                                 Jika terdapat gangguan atau permasalahan, bisa kontak support kami
                                             </div>
                                             <div class="d-grid">
-                                                <a href="https://api.whatsapp.com/send?phone=6285693749533&text=SupportWebSGE" class="btn btn-outline-primary"
-                                                    target="_blank">Whatsapp</a>
+                                                <a href="https://api.whatsapp.com/send?phone=6285693749533&text=SupportWebSGE"
+                                                    class="btn btn-outline-primary" target="_blank">Whatsapp</a>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +134,7 @@
                 <a class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>
                 </a>
-                {{--<form class="d-none d-sm-inline-block">
+                {{-- <form class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
                         <input type="text" class="form-control" placeholder="Search…" aria-label="Search">
                         <button class="btn" type="button">
@@ -407,24 +417,24 @@
                         <!--    </div>-->
                         <!--</li>-->
                         <li class="nav-item dropdown">
-                            @if (App()->getLocale()=="id")
-                            <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown"
-                            data-bs-toggle="dropdown">
-                            <img src="https://demo.adminkit.io/img/flags/id.png" alt="English">
-                        </a>
-              @else
-              <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown"
-              data-bs-toggle="dropdown">
-              <img src="https://demo.adminkit.io/img/flags/us.png" alt="English">
-          </a>
-              @endif
+                            @if (App()->getLocale() == 'id')
+                                <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown"
+                                    data-bs-toggle="dropdown">
+                                    <img src="https://demo.adminkit.io/img/flags/id.png" alt="English">
+                                </a>
+                            @else
+                                <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown"
+                                    data-bs-toggle="dropdown">
+                                    <img src="https://demo.adminkit.io/img/flags/us.png" alt="English">
+                                </a>
+                            @endif
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                                <a class="dropdown-item" href="{{url('locale/id')}}">
+                                <a class="dropdown-item" href="{{ url('locale/id') }}">
                                     <img src="https://demo.adminkit.io/img/flags/id.png" alt="Indonesia"
                                         width="20" class="align-middle me-1">
                                     <span class="align-middle">Indonesia</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('locale/en')}}">
+                                <a class="dropdown-item" href="{{ url('locale/en') }}">
                                     <img src="https://demo.adminkit.io/img/flags/us.png" alt="English"
                                         width="20" class="align-middle me-1">
                                     <span class="align-middle">English</span>
@@ -479,14 +489,13 @@
                                 <!--        </path>-->
                                 <!--    </svg> Settings &amp;-->
                                 <!--    Privacy</a>-->
-                                <a class="dropdown-item" href="#">Hallo, @if(Auth::check())
-   {{Auth::user()->name}}
-
-@else
-Tamu
-@endif
-</a>
-                                    <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                <a class="dropdown-item" href="#">Hallo, @if (Auth::check())
+                                        {{ Auth::user()->name }}
+                                    @else
+                                        Tamu
+                                    @endif
+                                </a>
+                                <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-help-circle align-middle me-1">
@@ -522,20 +531,39 @@ Tamu
     <script src="/js/app.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!--<script src="/tinymce/tinymce.min.js"></script>-->
-    <script src="https://cdn.tiny.cloud/1/nnd7pakaxqr7isf3oqefsdlew1jsidgl78umfeus6tg21ng0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/nnd7pakaxqr7isf3oqefsdlew1jsidgl78umfeus6tg21ng0/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script>
-                tinymce.init({
+        tinymce.init({
+            selector: 'textarea.tinymce',
+            height: 140,
+            // toolbar: "undo redo",
+            toolbar: false,
+            menubar: false
+
+        });
+    </script>
+    <script>
+        tinymce.init({
             selector: '#tinymce',
 
-            image_class_list: [
-            {title: 'image-left', value: 'image-left'},
-            {title: 'image-right', value: 'image-right'},
-            {title: 'image-center', value: 'image-center'},
+            image_class_list: [{
+                    title: 'image-left',
+                    value: 'image-left'
+                },
+                {
+                    title: 'image-right',
+                    value: 'image-right'
+                },
+                {
+                    title: 'image-center',
+                    value: 'image-center'
+                },
             ],
             height: 500,
-            setup: function (editor) {
-                editor.on('init change', function () {
+            setup: function(editor) {
+                editor.on('init change', function() {
                     editor.save();
                 });
             },
@@ -545,36 +573,36 @@ Tamu
                 "insertdatetime media table contextmenu paste imagetools"
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image ",
-
+            menubar: false,
             image_title: true,
             automatic_uploads: true,
-        
-            images_upload_handler: function (blobInfo, success, failure) {
-            var xhr, formData;
-            xhr = new XMLHttpRequest();
-            xhr.withCredentials = false;
-            xhr.open('POST', '{{ route('upload') }}');
-            var token = '{{ csrf_token() }}';
-            xhr.setRequestHeader("X-CSRF-Token", token);
-            xhr.onload = function() {
-                var json;
-                if (xhr.status != 200) {
-                    failure('HTTP Error: ' + xhr.status);
-                    return;
-                }
-                json = JSON.parse(xhr.responseText);
 
-                if (!json || typeof json.location != 'string') {
-                    failure('Invalid JSON: ' + xhr.responseText);
-                    return;
-                }
-                success(json.location);
-            };
-            formData = new FormData();
-            formData.append('file', blobInfo.blob(), blobInfo.filename());
-            xhr.send(formData);
-        },
-            
+            images_upload_handler: function(blobInfo, success, failure) {
+                var xhr, formData;
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', '{{ route('upload') }}');
+                var token = '{{ csrf_token() }}';
+                xhr.setRequestHeader("X-CSRF-Token", token);
+                xhr.onload = function() {
+                    var json;
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                    json = JSON.parse(xhr.responseText);
+
+                    if (!json || typeof json.location != 'string') {
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+                    success(json.location);
+                };
+                formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+                xhr.send(formData);
+            },
+
             file_picker_types: 'image',
             file_picker_callback: function(cb, value, meta) {
                 var input = document.createElement('input');
@@ -585,13 +613,15 @@ Tamu
 
                     var reader = new FileReader();
                     reader.readAsDataURL(file);
-                    reader.onload = function () {
+                    reader.onload = function() {
                         var id = 'blobid' + (new Date()).getTime();
-                        var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                         var base64 = reader.result.split(',')[1];
                         var blobInfo = blobCache.create(id, file, base64);
                         blobCache.add(blobInfo);
-                        cb(blobInfo.blobUri(), { title: file.name });
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
                     };
                 };
                 input.click();
@@ -599,36 +629,36 @@ Tamu
         });
     </script>
     <script>
-    $(document).ready(()=>{
-      $('#images').change(function(){
-        const file = this.files[0];
-        console.log(file);
-        if (file){
-          let reader = new FileReader();
-          reader.onload = function(event){
-            console.log(event.target.result);
-            $('#imgPreview').attr('src', event.target.result);
-          }
-          reader.readAsDataURL(file);
-        }
-      });
-    });
+        $(document).ready(() => {
+            $('#images').change(function() {
+                const file = this.files[0];
+                console.log(file);
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(event) {
+                        console.log(event.target.result);
+                        $('#imgPreview').attr('src', event.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
     </script>
     <script>
-
         document.getElementById('date').valueAsDate = new Date();
     </script>
     <script>
-        @if(session()->has('success'))
-        toastr.success('{{ session('success') }}', 'BERHASIL!');
-    @elseif(session()->has('error'))
-        toastr.error('{{ session('error') }}', 'GAGAL!');
-    @endif
+        @if (session()->has('success'))
+            toastr.success('{{ session('success') }}', 'BERHASIL!');
+        @elseif (session()->has('error'))
+            toastr.error('{{ session('error') }}', 'GAGAL!');
+        @endif
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#data').DataTable();
         });
     </script>
 </body>
+
 </html>
