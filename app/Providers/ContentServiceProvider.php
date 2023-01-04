@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-
+use App\Models\Announs;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Doc;
+use App\Models\Laporan;
 use App\Models\Menu;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -70,8 +71,8 @@ class ContentServiceProvider extends ServiceProvider
             $view->with([
                 'category' => Category::all(),
                 'menus' => Menu::all(),
-                'announs' => Post::where('status', 'Publish')->where('type', 'Announ')->limit(3)->get(),
-                'laporans' => Post::Orderby('date_gmt', 'desc')->where('status', 'Publish')->where('type', 'Report')->limit(4)->get(),
+                'announs' => Announs::where('status', 'Publish')->limit(3)->get(),
+                'laporans' => Laporan::Orderby('date_gmt', 'desc')->where('status', 'Publish')->limit(4)->get(),
                 'financial' => $financial,
                 'pagepublish' => $pagepublish,
                 'docs' => Doc::all(),

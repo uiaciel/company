@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Laporan;
 use App\Models\Menu;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('categories')->insert([
             'name' => 'News',
-            'slug' => 'News',
+            'slug' => 'news',
         ]);
 
         DB::table('categories')->insert(
@@ -49,6 +50,11 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'subsidiaries',
             ]
         );
+
+        DB::table('categories')->insert([
+            'name' => 'Carrer',
+            'slug' => 'carreer',
+        ]);
 
         DB::table('posts')->insert([
             'user_id' => 1,
@@ -144,6 +150,11 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('images')->insert([
+            'post_id'  =>  6,
+            'path' =>  'images/ib0wuU7oyltyyrcrm3fhdcf0WKyYCr5UExTfoMcB.png',
+        ]);
+
         DB::table('posts')->insert([
 
             'user_id' => 1,
@@ -161,6 +172,11 @@ class DatabaseSeeder extends Seeder
             <p>Sebelum memberikan suntikan modal tersebut, SGER mengendalikan 90% saham SMGA per 30 Juni 2022. Sedangkan sisanya dimiliki oleh Vivi Ramalyati Hutama.</p>
             <p>Menurut data idnfinancials.com, SMGA adalah entitas usaha yang menjalankan bisnis perdagangan dan beroperasi mulai 2016. Per 30 Juni 2022, SMGA memiliki total aset sebanyak Rp112,17 miliar. (KR)</p>'
 
+        ]);
+
+        DB::table('images')->insert([
+            'post_id'  =>  7,
+            'path' =>  'images/XpTqtlOZ3NX9EOmWqvrKXvzcMIPP2oQJgdcRiV4n.png',
         ]);
 
         DB::table('posts')->insert([
@@ -181,6 +197,11 @@ class DatabaseSeeder extends Seeder
             <p>PT Sumbermas Inti Energi tercatat sebagai pemegang saham pengendali SGER, dengan porsi kepemilikan saham 54,4% per 31 Maret 2022. Investor publik tercatat memiliki 18,7% saham, dan sisanya dimiliki oleh sejumlah investor perorangan. (KR)</p>
             <p>Sumber : <a href="https://www.idnfinancials.com/id/news/43466/sumber-global-energy-bonus-shares-ratio">Sumber Global Energy akan bagikan saham bonus dengan rasio 10:9 | IDNFinancials</a></p>'
 
+        ]);
+
+        DB::table('images')->insert([
+            'post_id'  =>  8,
+            'path' =>  'images/ApKcr5sohHICaac1uWxIEzIKwPWfJCnyhHSgl7rq.png',
         ]);
 
         DB::table('posts')->insert([
@@ -262,8 +283,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'senior-corporate-finance',
             'lang' => 'en',
             'status' => 'Publish',
-            'type' => 'Career',
-            'layout' => 'Full',
+            'type' => 'Blog',
+            'layout' => 'Sidebar',
+            'id_category' => 4,
             'content' => "<p><strong>Qualifications:</strong><br>Education min Bachelor (S1) / Master Degree Majoring in Economics / Accounting (Preferably)<br>Max. age 50 years old (Preferably)<br>Experience in Corporate Finance at least 5 years at Manager level, Preferably&nbsp;<br>Have experience related Public Company Regulations (OJK, IDX)<br>Have good analytical skills, especially for restructuring, M&amp;A<br>Have good written and spoken English, a plus if able to speak Mandarin</p>
             <p><strong>Responsibilities :</strong></p>
             <ul>
@@ -288,5 +310,120 @@ class DatabaseSeeder extends Seeder
         ];
 
         Menu::insert($menus);
+
+        $laporan = [
+            [
+                'user_id' => 1,
+                'title' => 'Annual Report 2021',
+                'slug' => 'annual-report-2021',
+                'category' => 'Annual Report',
+                'image' => 'images/EckFvJqf3wgxZIaqL0Bq3SNauyc4CIhozEQQkqnP.png',
+                'date_gmt' => '2022-06-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663346499[SGE]%20AR2021_Content.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Annual Report 2020',
+                'slug' => 'annual-report-2020',
+                'category' => 'Annual Report',
+                'image' => 'images/2tw4ChGjdZdkSe1iSJ4OYXBNmg15Jjiy2oUhMRqj.png',
+                'date_gmt' => '2022-05-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663346235ANNUAL%20REPORT%202020.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Audited Annual Report 2017-2018-2019',
+                'slug' => 'audited-annual-report-2017-2018-2019',
+                'category' => 'Annual Report',
+                'image' => 'images/tF9GfygOZiWlbw2WRON7MffN9xtGa0flOyDNwtIt.jpg',
+                'date_gmt' => '2022-04-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663352567Audited%20annual%20report%202017-2018-2019.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report Q2 2022',
+                'slug' => 'final-report-q2-2022',
+                'category' => 'Financial Report',
+                'image' => 'images/s93A3wVgI3YzNNAyTZ0gWzx5CEuDe0yduxYKZ5h6.jpg',
+                'date_gmt' => '2022-03-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663381398Final%20Report%20Q2%202022.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report Q1 2022',
+                'slug' => 'final-report-q1-2022',
+                'category' => 'Financial Report',
+                'image' => 'images/jvt3PY1c0lvXbvWa9AWLe16FzTwHk7PosWMVo1y8.jpg',
+                'date_gmt' => '2022-02-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663381114Final%20Report%20Q1%202022.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report 2021',
+                'slug' => 'final-report-2021',
+                'category' => 'Financial Report',
+                'image' => 'images/zwNfuG5AMG2PMP5jFgiqAezMCx0oog4VSWY7NUag.jpg',
+                'date_gmt' => '2022-02-02',
+                'status' => 'Publish',
+                'pdf' => 'files/1663380941Final%20Report%202021.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report Q3 2021',
+                'slug' => 'final-report-q3-2021',
+                'category' => 'Financial Report',
+                'image' => 'images/Qz4ngycUwO9lNIOO0Q5x6tY1qaC0SOtN1IW13m4r.jpg',
+                'date_gmt' => '2022-02-01',
+                'status' => 'Publish',
+                'pdf' => 'files/1663381532Final%20Report%20Q3%202021.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report Q2 2021',
+                'slug' => 'final-report-q2-2021',
+                'category' => 'Financial Report',
+                'image' => 'images/F73FvSnssbYBcK5tgQ9WprQYX85AOqArdlZhnOD9.jpg',
+                'date_gmt' => '2022-01-03',
+                'status' => 'Publish',
+                'pdf' => 'files/1663381275Final%20Report%20Q2%202021.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report Q1 2021',
+                'slug' => 'final-report-q1-2021',
+                'category' => 'Financial Report',
+                'image' => 'images/zuQqyTUhdhSJ3x2q6FWnEtc2JOz1FDTvsZvnojYS.jpg',
+                'date_gmt' => '2022-01-02',
+                'status' => 'Publish',
+                'pdf' => 'files/1663352763Final%20Report%20Q1%202021.pdf'
+
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Final Report 2020',
+                'slug' => 'final-report-2020',
+                'category' => 'Financial Report',
+                'image' => 'images/pXzJXdZhfY5UF4YaqpzxWLvCZ1ZArGCDsZM1p6uf.jpg',
+                'date_gmt' => '2022-01-01',
+                'status' => 'Publish',
+                'pdf' => 'files/1663380788Final%20Report%202020.pdf'
+
+            ],
+        ];
+
+        Laporan::insert($laporan);
     }
 }

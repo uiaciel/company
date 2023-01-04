@@ -50,9 +50,7 @@ Route::get('/share-price', function () {
     return view('frontend.shareprice');
 });
 
-Route::get('/financial-reports', function () {
-    return view('laporans.list');
-});
+Route::get('/financial-reports', [App\Http\Controllers\LaporanController::class, 'showlist']);
 
 Route::get('/contact-us', function () {
     return view('frontend.contact');

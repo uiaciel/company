@@ -21,7 +21,6 @@ class CategoryController extends Controller
         return view('admincp.posts.category', [
             'category' => $category
         ]);
-
     }
 
     /**
@@ -54,8 +53,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('category.index')
-                        ->with('success','Category created successfully.');
-
+            ->with('success', 'Category created successfully.');
     }
 
     /**
@@ -94,7 +92,6 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-
     }
 
     /**
@@ -115,7 +112,7 @@ class CategoryController extends Controller
     public function mediacenter($lang)
     {
 
-        $post = Post::where('lang', $lang)->where('status', 'Publish')->where('type', 'Blog')->get();
+        $post = Post::where('status', 'Publish')->where('type', 'Blog')->get();
 
         return view('frontend.mediacenter', [
             'blogs' => $post

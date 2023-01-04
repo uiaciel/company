@@ -59,4 +59,39 @@ class AnnounController extends Controller
     {
         return view('announs.show', compact('post'));
     }
+
+    public function edit(Announs $announ)
+    {
+        return view('announs.edit', compact('announ'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $announ = Announs::find($id);
+        $announ->title = $request->title;
+        $announ->slug = Str::slug($request->title);
+        $announ->user_id = Auth::id();
+        $announ->status = $request->status;
+        $announ->content = $request->content;
+
+        if ($request->hasFile('images')) {
+            $nama = time() . '-' . $request->file('images')->getClientOriginalName();
+            $path = $request->file('images')->storeAs('images', $nama, ['disk' => 'public']);
+            $announ->image = $path;
+        }
+
+        if ($request->hasFile('pdf')) {
+
+            $slugName = str_replace(' ', '_', $request->file('pdf')->getClientOriginalName());
+
+            $fileName = time() . '_' . $slugName;
+            $pdf = $request->file('pdf')->storeAs('pdf', $nama, ['disk' => 'public']);
+            $announ->pdf = $pdf;
+        }
+
+        $announ->update();
+
+        return redirect()->back()
+            ->with('success', 'Announcement updated successfully.');
+    }
 }

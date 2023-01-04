@@ -101,11 +101,6 @@ class PostController extends Controller
                 ->with('success', 'Annoucement created successfully.');
         }
 
-        if ($request->type == 'Announ') {
-            return redirect()->route('announs.index')
-                ->with('success', 'Annoucement created successfully.');
-        }
-
         if ($request->type == 'Page') {
             return redirect()->route('pages.index')
                 ->with('success', 'Page created successfully.');
@@ -122,14 +117,6 @@ class PostController extends Controller
         return view('admincp.posts.show', compact('post'));
     }
 
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Post $post)
     {
         return view('admincp.posts.edit', compact('post'));
@@ -141,8 +128,6 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-
-
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $imagefile) {
@@ -199,11 +184,6 @@ class PostController extends Controller
                 ->with('success', 'Annoucement updated successfully.');
         }
 
-        if ($request->type == 'Announ') {
-            return redirect()->route('announs.index')
-                ->with('success', 'Annoucement updated successfully.');
-        }
-
         if ($request->type == 'Page') {
             return redirect()->route('pages.index')
                 ->with('success', 'Page updated successfully.');
@@ -222,11 +202,6 @@ class PostController extends Controller
 
         if ($post->type == 'Blog') {
             return redirect()->route('posts.index')
-                ->with('success', 'Data Berhasil Dihapus!');
-        }
-
-        if ($post->type == 'Announ') {
-            return redirect()->route('announs.index')
                 ->with('success', 'Data Berhasil Dihapus!');
         }
 

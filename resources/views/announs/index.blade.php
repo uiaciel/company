@@ -29,13 +29,14 @@
                                     <tr>
                                         <td scope="row">{{ $index + 1 }}</td>
                                         <td>{{ $posts->title }}</td>
-                                        <td><a href="/{{ $posts->lang }}/{{Str::lower($posts->type)}}/{{ $posts->slug }}">{{ $posts->slug }}</a>
+                                        <td><a
+                                                href="/{{ $posts->lang }}/{{ Str::lower($posts->type) }}/{{ $posts->slug }}">{{ $posts->slug }}</a>
                                         </td>
                                         <td>{{ $posts->status }}</td>
                                         <td>
                                             <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
                                                 action="{{ route('posts.destroy', $posts->id) }}" method="POST">
-                                                <a href="{{ route('posts.edit', $posts->id) }}"
+                                                <a href="{{ route('announs.edit', $posts->id) }}"
                                                     class="btn btn-sm btn-primary">{{ __('admincp.edit') }}</a>
                                                 @csrf
                                                 @method('DELETE')
