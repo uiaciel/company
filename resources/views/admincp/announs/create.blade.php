@@ -32,13 +32,26 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">{{ __('admincp.content') }}</label>
-                                    <textarea class="form-control tinymce @error('content') is-invalid @enderror" name="content" rows="1"></textarea>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="10" id="tinymce"></textarea>
                                 </div>
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header bg-dark text-white"> File PDF
+
+                            </div>
+                            <div class="card-body">
+
                                 <div class="mb-3">
                                     <label class="form-label fw-2 fw-bold">PDF</label>
                                     <input type="file" class="form-control @error('files') is-invalid @enderror"
@@ -62,24 +75,10 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <img id="imgPreview" src="https://via.placeholder.com/728x180.png" alt="preview image"
+                                    <img id="imgPreview" src="https://via.placeholder.com/600x800.png" alt="preview image"
                                         class="img-fluid">
                                 </div>
 
-
-
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header bg-dark text-white"> SETTING
-
-                            </div>
-                            <div class="card-body">
                                 <div class="mb-3" hidden>
                                     <label for="" class="form-label">{{ __('admincp.status') }}</label>
                                     <select class="form-control @error('status') is-invalid @enderror" name="status">

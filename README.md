@@ -62,3 +62,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Todo List
+
+[x] Posting Post Create Edit Delete
+[x] Posting Announcement Create Delete
+[] Announcement Edit error hasFile('image') gak berfungsi
+[] Posting File Report
+[] Announment index slug ganti date
+[] Report Edit pakai Modal yang bisa di edit cuma Categori Tanggalaja

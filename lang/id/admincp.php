@@ -21,11 +21,12 @@ return [
     'category' => 'Kategori',
     'date' => 'Tanggal',
     'type' => 'Tipe',
-    'status' =>'Status',
+    'status' => 'Status',
     'publish' => 'Simpan',
     'areyousure' => 'Apakah Anda Sudah Yakin ?',
     'image' => 'Gambar',
-    'contacts' => 'Pesan Masuk'
+    'contacts' => 'Pesan Masuk',
+    'update' => 'Update'
 
 
 ];

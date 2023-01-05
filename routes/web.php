@@ -40,10 +40,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/admincp/menu', \App\Http\Controllers\MenuController::class);
 
     Route::post('image/upload', [\App\Http\Controllers\HomeController::class, 'upload'])->name('image.upload');
+    Route::put('/admincp/announs/{announ}', [\App\Http\Controllers\AnnounController::class, 'removepdf'])->name('announs.removepdf');
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/{lang}/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
+    Route::get('/blog/{lang}/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
 });
 
 Route::get('/share-price', function () {

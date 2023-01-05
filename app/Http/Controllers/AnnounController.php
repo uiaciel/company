@@ -14,14 +14,14 @@ class AnnounController extends Controller
     {
         $posts = Announs::all();
 
-        return view('announs.index', [
+        return view('admincp.announs.index', [
             'posts' => $posts
         ]);
     }
 
     public function create()
     {
-        return view('announs.create');
+        return view('admincp.announs.create');
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class AnnounController extends Controller
             $slugName = str_replace(' ', '_', $request->file('pdf')->getClientOriginalName());
 
             $fileName = time() . '_' . $slugName;
-            $pdf = $request->file('pdf')->storeAs('pdf', $nama, ['disk' => 'public']);
+            $pdf = $request->file('pdf')->storeAs('pdf', $fileName, ['disk' => 'public']);
             $announ->pdf = $pdf;
         }
 
@@ -50,19 +50,29 @@ class AnnounController extends Controller
         $announ->content = $request->content;
         $announ->save();
 
-        return redirect()->back()
+        return redirect()->route('announs.index')
             ->with('success', 'Announcement send successfully.');
-    }
-
-
-    public function show(Post $post)
-    {
-        return view('announs.show', compact('post'));
     }
 
     public function edit(Announs $announ)
     {
-        return view('announs.edit', compact('announ'));
+        return view('admincp.announs.edit', compact('announ'));
+    }
+
+    public function removepdf(Request $request, $id)
+    {
+        $announ = Announs::find($id);
+        $announ->title = $request->title;
+        $announ->slug = Str::slug($request->title);
+        $announ->user_id = Auth::id();
+        $announ->status = $request->status;
+        $announ->content = $request->content;
+        $announ->image = $request->image;
+        $announ->pdf = '';
+        $announ->update();
+
+        return redirect()->back()
+            ->with('success', 'Announcement File deleted successfully.');
     }
 
     public function update(Request $request, $id)
@@ -74,18 +84,21 @@ class AnnounController extends Controller
         $announ->status = $request->status;
         $announ->content = $request->content;
 
-        if ($request->hasFile('images')) {
-            $nama = time() . '-' . $request->file('images')->getClientOriginalName();
-            $path = $request->file('images')->storeAs('images', $nama, ['disk' => 'public']);
+
+        if ($request->hasfile('image')) {
+
+            $nama = time() . '-' . $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images', $nama, ['disk' => 'public']);
             $announ->image = $path;
         }
+
 
         if ($request->hasFile('pdf')) {
 
             $slugName = str_replace(' ', '_', $request->file('pdf')->getClientOriginalName());
 
             $fileName = time() . '_' . $slugName;
-            $pdf = $request->file('pdf')->storeAs('pdf', $nama, ['disk' => 'public']);
+            $pdf = $request->file('pdf')->storeAs('pdf', $fileName, ['disk' => 'public']);
             $announ->pdf = $pdf;
         }
 
@@ -93,5 +106,14 @@ class AnnounController extends Controller
 
         return redirect()->back()
             ->with('success', 'Announcement updated successfully.');
+    }
+
+    public function destroy(Announs $announ)
+    {
+        //delete post
+        $announ->delete();
+
+        return redirect()->back()
+            ->with('success', 'Announcement deleted successfully.');
     }
 }

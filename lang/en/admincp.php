@@ -21,11 +21,12 @@ return [
     'category' => 'Category',
     'date' => 'Date',
     'type' => 'Type',
-    'status' =>'status',
+    'status' => 'status',
     'publish' => 'Publish',
     'areyousure' => 'Are you sure ?',
     'image' => 'Images',
     'contacts' => 'Contacts',
+    'update' => 'Update'
 
 
 
