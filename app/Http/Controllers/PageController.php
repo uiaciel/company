@@ -56,4 +56,13 @@ class PageController extends Controller
         return redirect()->route('pages.index')
             ->with('success', 'Page updated successfully.');
     }
+    
+    public function showpage($slug)
+    {
+        $post = Post::where('slug', $slug)->where('type', 'Page')->first();
+
+        return view('frontend.page', [
+            'post' => $post
+        ]);
+    }
 }

@@ -15,7 +15,7 @@
                                     class="img-fluid">
                             </div>
                             <div class="col-md-8">
-                                <h4><a href="/{{ $posts->lang }}/{{ $posts->slug }}">{{ $posts->title }}</a></h4>
+                                <h4><a href="/media/{{ $posts->slug }}">{{ $posts->title }}</a></h4>
                                 <p>{!! $posts->excerpt !!}</p>
                                 <p>Date Post : {{ $posts->date_gmt }}</p>
                             </div>

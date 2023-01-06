@@ -109,7 +109,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
-    public function mediacenter($lang)
+    public function mediacenter()
     {
 
         $post = Post::where('status', 'Publish')->where('type', 'Blog')->get();

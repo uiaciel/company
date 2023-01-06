@@ -6,21 +6,7 @@
     <title>PT SUMBER GLOBAL ENERGY Tbk - {{ $data }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta
-        content="coal trading,
-        list of coal trading companies in india,
-        top coal trading companies in the world,
-        coal trading adalah,
-        coal trading associate,
-        coal trade australia,
-        coal trading business,
-        coal trading companies,
-        coal trading companies in india,
-        coal trading companies in indonesia,
-        coal trading company profile,
-        coal tradingview,
-        coal trading exchange,
-        ep coal trading,
-        coal futures trading"
+        content="coal trading, list of coal trading companies in india, top coal trading companies in the world, coal trading adalah, coal trading associate, coal trade australia, coal trading business, coal trading companies, coal trading companies in india, coal trading companies in indonesia, coal trading company profile, coal tradingview, coal trading exchange, ep coal trading, coal futures trading"
         name="keywords" />
     <meta
         content="PT. Sumber Global Energy Tbk (SGER) didirikan pada tanggal 17 Maret 2008. Perusahaan bersama anak usahanya bergerak dalam bidang perdagangan besar bahan bakar padat, cair, gas, energi terbaru dan terbarukan serta pertambangan logam dan mineral tanah jarang (rare earth). Perusahaan memulai kegiatan operasionalnya pada tahun 2011"
@@ -139,10 +125,10 @@
                     <a href="#" class="nav-link text-white dropdown-toggle"
                         data-bs-toggle="dropdown">{{ __('home.aboutus') }}</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="/en/company-profile" class="dropdown-item">Company Profile</a>
-                        <a href="/en/visi-mission" class="dropdown-item">Visi & Mision</a>
-                        <a href="/en/message-from-director" class="dropdown-item">Message From Director</a>
-                        <a href="/en/company-policy" class="dropdown-item">Company Policy</a>
+                        <a href="/about-us/company-profile" class="dropdown-item">Company Profile</a>
+                        <a href="/about-us/visi-mission" class="dropdown-item">Visi & Mision</a>
+                        <a href="/about-us/message-from-director" class="dropdown-item">Message From Director</a>
+                        <a href="/about-us/company-policy" class="dropdown-item">Company Policy</a>
                     </div>
                 </div>
                 @if (App::getLocale() == 'id')
@@ -162,7 +148,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">ESG</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="/en/corporate-social-responsibility" class="dropdown-item">CSR</a>
+                        <a href="/corporate-social-responsibility" class="dropdown-item">CSR</a>
                     </div>
                 </div>
                 <a href="/category/career" class="nav-item text-white nav-link">{{ __('home.career') }}</a>
@@ -271,7 +257,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">{{ __('home.quicklink') }}</h4>
-                    <a class="btn btn-link" href="/en/company-profile">{{ __('home.aboutus') }}</a>
+                    <a class="btn btn-link" href="/about-us/company-profile">{{ __('home.aboutus') }}</a>
                     @if (App::getLocale() == 'id')
                         <a class="btn btn-link" href="/id/media-center">{{ __('home.mediacenter') }}</a>
                     @else

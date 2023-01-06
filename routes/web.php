@@ -12,15 +12,11 @@ Route::get('locale/{locale}', function ($locale) {
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
+Route::get('media/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
+Route::get('about-us/{slug}/', [App\Http\Controllers\PageController::class, 'showpage'])->name('showpage');
 
-Route::post('/upload', [App\Http\Controllers\HomeController::class, 'tinimyce'])->name('upload');
-
-Route::get('/test', function () {
-    return view('welcome');
-});
-
-Route::get('/{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
-Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
+Route::get('category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
 
 Auth::routes(['register' => false]);
 
@@ -41,11 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/admincp/menu', \App\Http\Controllers\MenuController::class);
 
     Route::post('image/upload', [\App\Http\Controllers\HomeController::class, 'upload'])->name('image.upload');
+    Route::post('/upload', [App\Http\Controllers\HomeController::class, 'tinimyce'])->name('upload');
     
-});
-
-Route::group(['middleware' => ['web']], function () {
-    Route::get('{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
 });
 
 Route::get('/share-price', function () {
@@ -67,3 +60,4 @@ Route::get('/esg/csr', function () {
 Route::get('/publicoffering', function () {
     return view('frontend.publicoffering');
 });
+
