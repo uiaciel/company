@@ -216,9 +216,9 @@ class PostController extends Controller
         }
     }
 
-    public function showpost($lang, $slug)
+    public function showpost($slug)
     {
-        $post = Post::where('lang', $lang)->where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->first();
 
 
         return view('frontend.artikel', [
