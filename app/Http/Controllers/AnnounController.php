@@ -59,6 +59,11 @@ class AnnounController extends Controller
         return view('admincp.announs.edit', compact('announ'));
     }
 
+    public function show(Announs $announ)
+    {
+        return view('frontend.announcement', compact('announ'));
+    }
+
     public function removepdf(Request $request, $id)
     {
         $announ = Announs::find($id);
@@ -83,7 +88,6 @@ class AnnounController extends Controller
         $announ->user_id = Auth::id();
         $announ->status = $request->status;
         $announ->content = $request->content;
-
 
         if ($request->hasfile('image')) {
 

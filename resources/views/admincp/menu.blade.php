@@ -23,6 +23,16 @@
                                     <label class="form-label" for="inputEmail4">Name</label>
                                     <input type="text" class="form-control" name="title" placeholder="menu">
                                 </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="inputEmail4">Parent Menu</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="inputEmail4">Slug</label>
+                                    <input type="text" class="form-control" name="title" placeholder="menu">
+                                </div>
 
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -36,6 +46,19 @@
                         LIST MENU
                     </div>
                     <div class="card-body">
+                        <div id="example1" class="list-group col">
+
+                            @forelse ($menus as $index => $menu)
+                                <div class="list-group-item">{{ $menu->title }}</div>
+                            @empty
+                                <div class="list-group-item">
+                                    Data Post belum Tersedia.
+                                </div>
+                            @endforelse
+
+
+                        </div>
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -46,27 +69,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($menus as $index => $menu)
-                                    <tr>
-                                        <td scope="row">{{ $index + 1 }}</td>
-                                        <td>{{ $menu->title }}</td>
-                                        <td>{{ $menu->slug }}</td>
-                                        <td>
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('menu.destroy', $menu->id) }}" method="POST">
-                                                <a href="{{ route('menu.edit', $menu->id) }}"
-                                                    class="btn btn-sm btn-primary">EDIT</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <div class="alert alert-danger">
-                                        Data Post belum Tersedia.
-                                    </div>
-                                @endforelse
+
                             </tbody>
                         </table>
                     </div>

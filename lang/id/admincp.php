@@ -26,7 +26,11 @@ return [
     'areyousure' => 'Apakah Anda Sudah Yakin ?',
     'image' => 'Gambar',
     'contacts' => 'Pesan Masuk',
-    'update' => 'Update'
+    'update' => 'Update',
+
+
+    'setting' => 'Pengaturan',
+
 
 
 ];

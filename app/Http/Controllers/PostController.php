@@ -17,7 +17,7 @@ class PostController extends Controller
         $posts = Post::where('type', 'blog')->orderBy('created_at', 'desc')->get();
 
         return view('admincp.posts.index', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
@@ -211,8 +211,6 @@ class PostController extends Controller
         }
 
         if ($post->type == 'Report') {
-            return redirect()->route('laporans.index')
-                ->with('success', 'Data Berhasil Dihapus!');
         }
     }
 

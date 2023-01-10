@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Laporan;
+use App\Models\Report;
 use App\Models\Menu;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -52,8 +52,8 @@ class DatabaseSeeder extends Seeder
         );
 
         DB::table('categories')->insert([
-            'name' => 'Carrer',
-            'slug' => 'carreer',
+            'name' => 'Career',
+            'slug' => 'career',
         ]);
 
         DB::table('posts')->insert([
@@ -424,6 +424,6 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
-        Laporan::insert($laporan);
+        Report::insert($laporan);
     }
 }

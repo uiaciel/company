@@ -34,7 +34,7 @@
                                         <td>{{ $posts->title }}</td>
                                         <td>{{ $posts->category->name }}</td>
                                         <td>{{ $posts->lang }}</td>
-                                        <td><a href="/{{ $posts->slug }}">{{ $posts->slug }}</a>
+                                        <td><a href="/media/{{ $posts->slug }}">/media/{{ $posts->slug }}</a>
                                         </td>
 
                                         <td>{{ $posts->status }}</td>

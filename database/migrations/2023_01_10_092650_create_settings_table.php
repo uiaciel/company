@@ -13,14 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->date('date_gmt');
-            $table->string('name');
+            $table->string('sitename');
+            $table->string('tagline');
+            $table->string('description');
+            $table->string('url');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('twitter');
+            $table->string('linkedin');
+            $table->string('address');
+            $table->string('phone');
             $table->string('email');
-            $table->string('subject');
-            $table->text('message');
-            $table->string('status');
             $table->timestamps();
         });
     }
@@ -32,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('settings');
     }
 };

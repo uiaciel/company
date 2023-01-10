@@ -15,8 +15,9 @@ Route::get('/', function () {
 Route::get('{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
 Route::get('media/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
 Route::get('about-us/{slug}/', [App\Http\Controllers\PageController::class, 'showpage'])->name('showpage');
-
 Route::get('category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
+Route::get('announcement/{announ}', [App\Http\Controllers\AnnounController::class, 'show'])->name('announs.show');
+Route::get('/contact-us', [App\Http\Controllers\ContactController::class, 'create'])->name('contacts.create');
 
 Auth::routes(['register' => false]);
 
@@ -24,13 +25,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', [App\Http\Controllers\AdmincpController::class, 'index'])->name('home');
     Route::get('/admincp', [\App\Http\Controllers\AdmincpController::class, 'admincp'])->name('admincp');
-    Route::resource('/admincp/category', \App\Http\Controllers\CategoryController::class);
+    Route::resource('/admincp/category', \App\Http\Controllers\CategoryController::class)->except('create', 'edit');
     Route::resource('/admincp/posts', \App\Http\Controllers\PostController::class);
     Route::put('/admincp/announs/{announ}', [\App\Http\Controllers\AnnounController::class, 'removepdf'])->name('announs.removepdf');
     Route::resource('/admincp/announs', \App\Http\Controllers\AnnounController::class);
     Route::resource('/admincp/laporans', \App\Http\Controllers\LaporanController::class);
+    Route::resource('/admincp/reports', \App\Http\Controllers\ReportController::class);
     Route::resource('/admincp/contacts', \App\Http\Controllers\ContactController::class);
     Route::resource('/admincp/pages', \App\Http\Controllers\PageController::class);
+    Route::resource('/admincp/settings', \App\Http\Controllers\SettingController::class);
     Route::resource('/image', \App\Http\Controllers\ImageController::class);
 
     Route::resource('/doc', \App\Http\Controllers\DocController::class);
@@ -38,7 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('image/upload', [\App\Http\Controllers\HomeController::class, 'upload'])->name('image.upload');
     Route::post('/upload', [App\Http\Controllers\HomeController::class, 'tinimyce'])->name('upload');
-    
 });
 
 Route::get('/share-price', function () {
@@ -47,17 +49,11 @@ Route::get('/share-price', function () {
 
 Route::get('/financial-reports', [App\Http\Controllers\LaporanController::class, 'showlist']);
 
-Route::get('/contact-us', function () {
-    return view('frontend.contact');
-});
 
 Route::get('/esg/csr', function () {
     return view('frontend.csr');
 });
 
-// Route::get('/career', [App\Http\Controllers\HomeController::class, 'career'])->name('career');
-
 Route::get('/publicoffering', function () {
     return view('frontend.publicoffering');
 });
-

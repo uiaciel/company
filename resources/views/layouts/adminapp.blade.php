@@ -52,52 +52,65 @@
                                             Menus
                                         </li>
 
-                                        <li class="sidebar-item">
+                                        <li class="sidebar-item {{ request()->is('admincp/posts*') ? 'active' : '' }}">
                                             <a class="sidebar-link" href="{{ route('posts.index') }}">
                                                 <i class="fa-solid fa-pen-nib"></i>
                                                 <span class="align-middle">{{ __('admincp.posts') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link" href="{{ route('category.index') }}">
+                                        <li
+                                            class="sidebar-item {{ request()->is('admincp/category*') ? 'active' : '' }}">
+                                            <a class="sidebar-link " href="{{ route('category.index') }}">
                                                 <i class="fa-solid fa-tags"></i>
                                                 <span class="align-middle">{{ __('admincp.category') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Category</span> --}}
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
+                                        <li class="sidebar-item {{ request()->is('admincp/pages*') ? 'active' : '' }}">
                                             <a class="sidebar-link" href="{{ route('pages.index') }}">
                                                 <i class="fa-solid fa-file-lines"></i>
                                                 <span class="align-middle">{{ __('admincp.page') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Pages</span> --}}
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link" href="{{ route('announs.index') }}">
+                                        <li
+                                            class="sidebar-item  {{ request()->is('admincp/announs*') ? 'active' : '' }}">
+                                            <a class="sidebar-link " href="{{ route('announs.index') }}">
                                                 <i class="fa-solid fa-circle-info"></i>
                                                 <span class="align-middle">{{ __('admincp.announ') }}</span>
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link" href="{{ route('laporans.index') }}">
-                                                <i class="fa-solid fa-book"></i>
+                                        <li
+                                            class="sidebar-item  {{ request()->is('admincp/reports*') ? 'active' : '' }}">
+                                            <a class="sidebar-link" href="{{ route('reports.index') }}">
+                                                <i class="fa-solid fa-file-pdf"></i>
                                                 <span class="align-middle">{{ __('admincp.report') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
+                                        <li
+                                            class="sidebar-item  {{ request()->is('admincp/contacts*') ? 'active' : '' }}">
                                             <a class="sidebar-link" href="{{ route('contacts.index') }}">
-                                                <i class="fa-solid fa-book"></i>
+                                                <i class="fa-solid fa-message"></i>
                                                 <span class="align-middle">{{ __('admincp.contact') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
                                             </a>
                                         </li>
 
-                                        <li class="sidebar-item">
+                                        <li class="sidebar-item {{ request()->is('admincp/menu*') ? 'active' : '' }}">
                                             <a class="sidebar-link" href="{{ route('menu.index') }}">
-                                                <i class="fa-solid fa-book"></i>
+                                                <i class="fa-solid fa-message"></i>
                                                 <span class="align-middle">Menu</span>
+                                                {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
+                                            </a>
+                                        </li>
+
+                                        <li
+                                            class="sidebar-item {{ request()->is('admincp/settings*') ? 'active' : '' }}">
+                                            <a class="sidebar-link" href="{{ route('settings.index') }}">
+                                                <i class="fa-sharp fa-solid fa-gear"></i>
+                                                <span class="align-middle">General Setting</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Posts</span> --}}
                                             </a>
                                         </li>
@@ -534,6 +547,15 @@
     <script src="https://cdn.tiny.cloud/1/nnd7pakaxqr7isf3oqefsdlew1jsidgl78umfeus6tg21ng0/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        var el = document.getElementById('example1');
+        var sortable = Sortable.create(el, {
+            animation: 150,
+            ghostClass: 'blue-background-class'
+        });
+    </script>
     <script>
         tinymce.init({
             selector: 'textarea.tinymce',

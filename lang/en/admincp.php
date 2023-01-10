@@ -26,7 +26,10 @@ return [
     'areyousure' => 'Are you sure ?',
     'image' => 'Images',
     'contacts' => 'Contacts',
-    'update' => 'Update'
+    'update' => 'Update',
+
+    'setting' => 'General Setting',
+
 
 
 

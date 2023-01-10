@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact = Contact::all();
-
-        return view('admincp.contacts.index', [
-            'contacts' => $contact
-        ]);
+        return view('admincp.settings.index');
     }
 
     /**
@@ -28,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('frontend.contact');
+        //
     }
 
     /**
@@ -39,27 +35,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact;
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->date_gmt = $request->date_gmt;
-        $contact->subject = $request->subject;
-        $contact->message = $request->message;
-        $contact->status = $request->status;
-
-        $contact->save();
-
-        return redirect()->back()
-            ->with('success', 'Message send successfully.');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Setting $setting)
     {
         //
     }
@@ -67,10 +52,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Setting $setting)
     {
         //
     }
@@ -79,10 +64,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Setting $setting)
     {
         //
     }
@@ -90,14 +75,11 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Setting $setting)
     {
-        $contact->delete();
-
-        return redirect()->route('contacts.index')
-            ->with('success', 'Data Berhasil Dihapus!');
+        //
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid p-0">
         @auth
-            <form action="{{ route('laporans.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('reports.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-2 mb-xl-3">
                     <div class="col-auto d-none d-sm-block">
@@ -33,13 +33,27 @@
 
                                 </div>
                                 <div class="col-md-8">
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">Type</span>
+                                            <select class="form-select  @error('id_category') is-invalid @enderror"
+                                                name="category">
+                                                <option value="Annual Report">Annual Report</option>
+                                                <option value="Financial Report">Financial Report</option>
 
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @error('category')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
 
                                     <div class="mb-3">
                                         <label for="" class="form-label">{{ __('admincp.title') }}</label>
                                         <input type="text" name="title"
-                                            class="form-control @error('title') is-invalid @enderror"
-                                            value="{{ $laporan->title }}">
+                                            class="form-control @error('title') is-invalid @enderror">
                                         {{-- <small id="helpId" class="text-muted">Help text</small> --}}
                                         @error('title')
                                             <div class="alert alert-danger mt-2">
@@ -49,7 +63,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">{{ __('admincp.content') }}</label>
-                                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="9">{{ $laporan->content }}</textarea>
+                                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="9"></textarea>
                                     </div>
                                     @error('content')
                                         <div class="alert alert-danger mt-2">
@@ -68,27 +82,11 @@
                                 {{ __('admincp.setting') }}
                             </div>
                             <div class="card-body">
-                                <div class="mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1">Type</span>
-                                        <select class="form-select  @error('id_category') is-invalid @enderror" name="category">
-                                            <option value="{{ $laporan->category }}">{{ $laporan->category }}</option>
-                                            <option value="Annual Report">Annual Report</option>
-                                            <option value="Financial Report">Financial Report</option>
 
-                                        </select>
-                                    </div>
-                                </div>
-                                @error('category')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                                 <div class="mb-3">
                                     <label for="" class="form-label">{{ __('admincp.date') }}</label>
                                     <input type="date" class="form-control @error('gmt_date') is-invalid @enderror"
-                                        name="date_gmt" aria-describedby="helpId" placeholder=""
-                                        value="{{ $laporan->date_gmt }}">
+                                        name="date_gmt" aria-describedby="helpId" placeholder="">
                                     <small id="helpId" class="form-text text-muted">Help text</small>
                                 </div>
                                 @error('date_gmt')
@@ -100,7 +98,6 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">{{ __('admincp.status') }}</label>
                                     <select class="form-control @error('status') is-invalid @enderror" name="status">
-                                        <option value="{{ $laporan->status }}">{{ $laporan->status }}</option>
                                         <option value="draf">Draf</option>
                                         <option value="publish">Publish</option>
                                     </select>
