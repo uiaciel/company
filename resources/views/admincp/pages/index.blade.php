@@ -31,7 +31,8 @@
                                         <td scope="row">{{ $index + 1 }}</td>
                                         <td>{{ $posts->title }}</td>
                                         <td>{{ $posts->lang }}</td>
-                                        <td><a href="/about-us/{{ $posts->slug }}">/about-us/{{ $posts->slug }}</a>
+                                        <td><a
+                                                href="/{{ $posts->pages }}/{{ $posts->slug }}">{{ $posts->menu->slug }}/{{ $posts->slug }}</a>
                                         </td>
                                         <td>{{ $posts->status }}</td>
                                         <td>

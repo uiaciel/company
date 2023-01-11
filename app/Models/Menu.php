@@ -15,4 +15,9 @@ class Menu extends Model
         'sort_order',
         'slug',
     ];
+
+    public function pages()
+    {
+        return $this->hasMany('App\Models\Page', 'id_menu');
+    }
 }

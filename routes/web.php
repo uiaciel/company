@@ -4,6 +4,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+Route::get('hello/world', function () {
+    return "hello world is working";
+});
+
+Route::get('hello/{name}', function ($name) {
+    return "hello " . $name;
+});
+
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
@@ -12,14 +20,18 @@ Route::get('locale/{locale}', function ($locale) {
 Route::get('/', function () {
     return view('frontend.index');
 });
-Route::get('{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
-Route::get('media/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
-Route::get('about-us/{slug}/', [App\Http\Controllers\PageController::class, 'showpage'])->name('showpage');
-Route::get('category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
-Route::get('announcement/{announ}', [App\Http\Controllers\AnnounController::class, 'show'])->name('announs.show');
-Route::get('/contact-us', [App\Http\Controllers\ContactController::class, 'create'])->name('contacts.create');
 
-Auth::routes(['register' => false]);
+Route::get('/contact-us', [App\Http\Controllers\ContactController::class, 'create'])->name('contacts.create');
+Route::get('/share-price', function () {
+    return view('frontend.shareprice');
+});
+Route::get('/financial-reports', [App\Http\Controllers\ReportController::class, 'showlist']);
+Route::get('/esg/csr', function () {
+    return view('frontend.csr');
+});
+Route::get('/publicoffering', function () {
+    return view('frontend.publicoffering');
+});
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -43,17 +55,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/upload', [App\Http\Controllers\HomeController::class, 'tinimyce'])->name('upload');
 });
 
-Route::get('/share-price', function () {
-    return view('frontend.shareprice');
-});
+Route::get('/media/{slug}/', [App\Http\Controllers\PostController::class, 'showpost'])->name('showpost');
+Route::get('category/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
+Route::get('announcement/{announ}', [App\Http\Controllers\AnnounController::class, 'show'])->name('announs.show');
+Route::get('{lang}/media-center', [App\Http\Controllers\CategoryController::class, 'mediacenter']);
+Route::get('{slug}/{id}', [App\Http\Controllers\PageController::class, 'showpage'])->name('showpage')->scopeBindings();
 
-Route::get('/financial-reports', [App\Http\Controllers\LaporanController::class, 'showlist']);
-
-
-Route::get('/esg/csr', function () {
-    return view('frontend.csr');
-});
-
-Route::get('/publicoffering', function () {
-    return view('frontend.publicoffering');
-});
+Auth::routes(['register' => false]);

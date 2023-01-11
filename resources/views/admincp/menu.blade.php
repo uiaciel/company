@@ -48,8 +48,26 @@
                     <div class="card-body">
                         <div id="example1" class="list-group col">
 
+
+
                             @forelse ($menus as $index => $menu)
-                                <div class="list-group-item">{{ $menu->title }}</div>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">{{ $menu->title }}</div>
+                                        {{ $menu->slug }}
+                                    </div>
+                                    <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
+                                        action="{{ route('menu.destroy', $menu->id) }}" method="POST">
+
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#edit{{ $menu->id }}"
+                                            class="btn btn-sm btn-primary">EDIT</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
+                                    </form>
+
+                                </li>
                             @empty
                                 <div class="list-group-item">
                                     Data Post belum Tersedia.
@@ -59,7 +77,7 @@
 
                         </div>
 
-                        <table class="table table-bordered">
+                        {{-- <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -71,7 +89,7 @@
                             <tbody>
 
                             </tbody>
-                        </table>
+                        </table> --}}
                     </div>
                 </div>
             </div>

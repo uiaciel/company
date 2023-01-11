@@ -7,7 +7,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('pages.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-2 mb-xl-3">
                     <div class="col-auto d-none d-sm-block">
@@ -40,6 +40,7 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">{{ __('admincp.content') }}</label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" id="tinymce" name="content" rows="10"></textarea>
+                                    <input name="excerpt" value="" hidden>
                                 </div>
                                 @error('content')
                                     <div class="alert alert-danger mt-2">
@@ -55,6 +56,15 @@
                                 SETTING
                             </div>
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="" class="form-label fw-bold">{{ __('admincp.status') }}</label>
+                                    <select class="form-control @error('status') is-invalid @enderror" name="id_menu">
+                                        @foreach ($menus as $menu)
+                                            <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
                                 <div class="mb-3" hidden>
                                     <label for="" class="form-label fw-bold">{{ __('admincp.status') }}</label>
                                     <select class="form-control @error('status') is-invalid @enderror" name="status">

@@ -14,7 +14,7 @@
                                     <a class="text-white" href="#">Home</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a class="text-white" href="#">{{ $post->type }}</a>
+                                    <a class="text-white" href="#">{{ $post->menu->title }}</a>
                                 </li>
                                 <li class="breadcrumb-item text-white active" aria-current="page">
                                     {{ $post->title }}
@@ -41,11 +41,11 @@
                         {!! $post->content !!}
                         <div class="mt-3">
 
-                            @foreach ($post->images as $image)
+                            {{-- @foreach ($post->images as $image)
                                 @if ($loop->first)
                                     <img src="/storage/{{ $image->path }}" class="img-fluid">
                                 @endif
-                            @endforeach
+                            @endforeach --}}
 
                         </div>
                         <div class="border-top mt-4 pt-4">
