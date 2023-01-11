@@ -5,6 +5,14 @@
             <div class="col-auto d-none d-sm-block">
                 <h3><strong>{{ __('admincp.setting') }}</h3>
             </div>
+            <div class="card">
+
+                <div class="card-body">
+                    <form>
+
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

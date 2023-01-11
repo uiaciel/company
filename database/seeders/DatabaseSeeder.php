@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Report;
 use App\Models\Menu;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -23,7 +22,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
+        User::factory()->create([
             'name' => 'Admin',
             'email' => 'mwn.surya@gmail.com',
             'email_verified_at' => now(),
@@ -31,8 +30,20 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
 
         ]);
+
         // \App\Models\Category::factory(5)->create();
         // \App\Models\Post::factory(20)->create();
+
+        $menus = [
+            ['title' => 'Home', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/'],
+            ['title' => 'About Us', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/about-us'],
+            ['title' => 'Subsidiaries', 'parent_id' => 1, 'sort_order' => 1, 'slug' => '/subsidiaries'],
+            ['title' => 'Investor Relation', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/investor-relation'],
+            ['title' => 'ESG', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/esg'],
+            ['title' => 'Contact Us', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/contact-us'],
+        ];
+
+        Menu::insert($menus);
 
         DB::table('categories')->insert([
             'name' => 'Berita',
@@ -44,27 +55,19 @@ class DatabaseSeeder extends Seeder
             'slug' => 'news',
         ]);
 
-        DB::table('categories')->insert(
-            [
-                'name' => 'Subsidiaries',
-                'slug' => 'subsidiaries',
-            ]
-        );
-
         DB::table('categories')->insert([
             'name' => 'Career',
             'slug' => 'career',
         ]);
 
-        DB::table('posts')->insert([
+        DB::table('pages')->insert([
             'user_id' => 1,
             'title' => 'Company Profile',
             'slug' => 'company-profile',
             'lang' => 'en',
             'status' => 'Publish',
-            'type' => 'Page',
+            'id_menu' => 2,
             'layout' => 'Full',
-
             'content' => '<p>We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.</p>
             <p>&nbsp;</p>
             <h3><strong>Vision</strong></h3>
@@ -78,27 +81,27 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        DB::table('posts')->insert([
+        DB::table('pages')->insert([
 
             'user_id' => 1,
             'title' => 'Visi Mission',
             'slug' => 'visi-mission',
             'lang' => 'en',
             'status' => 'Publish',
-            'type' => 'Page',
+            'id_menu' => 2,
             'layout' => 'Full',
 
             'content' => '<p>We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.</p>',
 
         ]);
-        DB::table('posts')->insert([
+        DB::table('pages')->insert([
 
             'user_id' => 1,
             'title' => 'Message from Director',
             'slug' => 'message-from-director',
             'lang' => 'en',
             'status' => 'Publish',
-            'type' => 'Page',
+            'id_menu' => 2,
             'layout' => 'Full',
             'content' => '<p>On behalf of all our employees, I would like to take this opportunity to express my heartfelt thanks to you for supporting Sumber Global Energy (SGE) for the past 12 years.</p>
             <p>It is with great pleasure that SGE has been staying ahead in the coal industry. Our company has an important role in the growth of the coal trading in Indonesia. Even though we are a relatively new rising trading company, we have strong associations with some of the major customers in Indonesia and overseas.</p>
@@ -106,20 +109,20 @@ class DatabaseSeeder extends Seeder
             <p>Finally I would like to emphasize that SGE is continuously committed to improve our performance to serve only the best and is sincerely thanking their valuable clients and partners for their continued support.</p>',
 
         ]);
-        DB::table('posts')->insert([
+        DB::table('pages')->insert([
 
             'user_id' => 1,
             'title' => 'Company Policy',
             'slug' => 'company-policy',
             'lang' => 'en',
             'status' => 'Publish',
-            'type' => 'Page',
+            'id_menu' => 2,
             'layout' => 'Full',
             'content' => '<p>Our company policies and procedures are in place to protect the rights of workers as well as the business interests of employers. We are committed to zero harm to people and the environment, because we believe that Health. Safety, Environment (HSE) and Community responsibilities are the foundation for sustainable our business.</p>
             <p>We have has a long-standing HSE commitment to the highest standards for the health and safety of our employees, customers. and contractors as well as to the protection of the environment in the communities in which we live and work because we want to be successful when it meets its targets toward the goal of zero harm and when it is a valued member of the community in which it operates.</p>',
 
         ]);
-        DB::table('posts')->insert([
+        DB::table('pages')->insert([
 
             'user_id' => 1,
             'title' => 'Corporate Social Responsibility',
@@ -127,12 +130,11 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'layout' => 'Full',
-            'type' => 'Page',
+            'id_menu' => 5,
             'content' => '<p>The Company&rsquo;s commitment to provide added value for the<br>community is realized through the implementation of the<br>Corporate Social Responsibility (CSR) program. In 2021, the<br>Company has implemented programs incorporated in Corporate<br>Social Responsibility with the following details:</p>
             <p>Kurban in Eid al-Adha</p>',
 
         ]);
-
 
         DB::table('posts')->insert([
 
@@ -151,7 +153,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('images')->insert([
-            'post_id'  =>  6,
+            'post_id'  =>  1,
             'path' =>  'images/ib0wuU7oyltyyrcrm3fhdcf0WKyYCr5UExTfoMcB.png',
         ]);
 
@@ -175,7 +177,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('images')->insert([
-            'post_id'  =>  7,
+            'post_id'  =>  2,
             'path' =>  'images/XpTqtlOZ3NX9EOmWqvrKXvzcMIPP2oQJgdcRiV4n.png',
         ]);
 
@@ -200,81 +202,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('images')->insert([
-            'post_id'  =>  8,
+            'post_id'  =>  3,
             'path' =>  'images/ApKcr5sohHICaac1uWxIEzIKwPWfJCnyhHSgl7rq.png',
         ]);
 
-        DB::table('posts')->insert([
-
-            'user_id' => 1,
-            'title' => 'PT Sumber Mineral Global Abadi',
-            'slug' => 'pt-sumber-mineral-global-abadi',
-            'lang' => 'en',
-            'status' => 'Publish',
-            'type' => 'Blog',
-            'layout' => 'Full',
-            'id_category' => 3,
-            'content' => "<p>PT. SUMBER MINERAL GLOBAL ABADI is a subsidiary of the company that handle the domestic trading for coal, nickel and other commodities.</p>
-            <p>SMGA also serves as a holding for the company's investment in several new and renewable energy development activities.</p>
-            <p>Through PT Sumber Mineral Global Abadi, the company invests in PT Suryamica and PT Asia Mulia Power.</p>"
-
-        ]);
-
-        DB::table('posts')->insert([
-
-            'user_id' => 1,
-            'title' => 'PT Mandau Batu Alam',
-            'slug' => 'pt-mandau-batu-alam',
-            'lang' => 'en',
-            'status' => 'Publish',
-            'type' => 'Blog',
-            'layout' => 'Full',
-            'id_category' => 3,
-            'content' => "<p>Engaged in mining contractors for coaL and other minerals to support the company's trading activities.</p>",
-
-        ]);
-
-        DB::table('posts')->insert([
-
-            'user_id' => 1,
-            'title' => 'PT Angkasa Nusa Graha',
-            'slug' => 'pt-angkasa-nusa-graha',
-            'lang' => 'en',
-            'status' => 'Publish',
-            'type' => 'Blog',
-            'layout' => 'Full',
-            'id_category' => 3,
-            'content' => "PT Angkasa Nusa Graha",
-
-        ]);
-
-        DB::table('posts')->insert([
-
-            'user_id' => 1,
-            'title' => 'PT Transmarina Pelabuhan Indonesia',
-            'slug' => 'pt-transmarina-pelabuhan-indonesia',
-            'lang' => 'en',
-            'status' => 'Publish',
-            'type' => 'Blog',
-            'layout' => 'Full',
-            'id_category' => 3,
-            'content' => "PT Transmarina Pelabuhan Indonesia",
-
-        ]);
-
-        DB::table('posts')->insert([
-
-            'user_id' => 1,
-            'title' => 'PT Hineni Resources Pte, Ltd',
-            'slug' => 'pt-hineni-resources-pte-ltd',
-            'lang' => 'en',
-            'status' => 'Publish',
-            'type' => 'Blog',
-            'layout' => 'Full',
-            'id_category' => 3,
-            'content' => "PT Hineni Resources Pte, Ltd",
-
-        ]);
 
         DB::table('posts')->insert([
 
@@ -285,7 +216,7 @@ class DatabaseSeeder extends Seeder
             'status' => 'Publish',
             'type' => 'Blog',
             'layout' => 'Sidebar',
-            'id_category' => 4,
+            'id_category' => 3,
             'content' => "<p><strong>Qualifications:</strong><br>Education min Bachelor (S1) / Master Degree Majoring in Economics / Accounting (Preferably)<br>Max. age 50 years old (Preferably)<br>Experience in Corporate Finance at least 5 years at Manager level, Preferably&nbsp;<br>Have experience related Public Company Regulations (OJK, IDX)<br>Have good analytical skills, especially for restructuring, M&amp;A<br>Have good written and spoken English, a plus if able to speak Mandarin</p>
             <p><strong>Responsibilities :</strong></p>
             <ul>
@@ -301,15 +232,72 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        $menus = [
-            ['title' => 'Home', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/'],
-            ['title' => 'About Us', 'parent_id' => 0, 'sort_order' => 1, 'slug' => '/about'],
-            ['title' => 'Company Profile', 'parent_id' => 2, 'sort_order' => 2, 'slug' => '/profile'],
-            ['title' => 'Visi', 'parent_id' => 2, 'sort_order' => 3, 'slug' => '/vision'],
-            ['title' => 'Media Center', 'parent_id' => 0, 'sort_order' => 0, 'slug' => '/contact'],
-        ];
+        DB::table('pages')->insert([
 
-        Menu::insert($menus);
+            'user_id' => 1,
+            'title' => 'PT Sumber Mineral Global Abadi',
+            'slug' => 'pt-sumber-mineral-global-abadi',
+            'lang' => 'en',
+            'status' => 'Publish',
+            'layout' => 'Full',
+            'id_menu' => 3,
+            'content' => "<p>PT. SUMBER MINERAL GLOBAL ABADI is a subsidiary of the company that handle the domestic trading for coal, nickel and other commodities.</p>
+            <p>SMGA also serves as a holding for the company's investment in several new and renewable energy development activities.</p>
+            <p>Through PT Sumber Mineral Global Abadi, the company invests in PT Suryamica and PT Asia Mulia Power.</p>"
+
+        ]);
+
+        DB::table('pages')->insert([
+
+            'user_id' => 1,
+            'title' => 'PT Mandau Batu Alam',
+            'slug' => 'pt-mandau-batu-alam',
+            'lang' => 'en',
+            'status' => 'Publish',
+            'layout' => 'Full',
+            'id_menu' => 3,
+            'content' => "<p>Engaged in mining contractors for coaL and other minerals to support the company's trading activities.</p>",
+
+        ]);
+
+        DB::table('pages')->insert([
+
+            'user_id' => 1,
+            'title' => 'PT Angkasa Nusa Graha',
+            'slug' => 'pt-angkasa-nusa-graha',
+            'lang' => 'en',
+            'status' => 'Publish',
+            'layout' => 'Full',
+            'id_menu' => 3,
+            'content' => "PT Angkasa Nusa Graha",
+
+        ]);
+
+        DB::table('pages')->insert([
+
+            'user_id' => 1,
+            'title' => 'PT Transmarina Pelabuhan Indonesia',
+            'slug' => 'pt-transmarina-pelabuhan-indonesia',
+            'lang' => 'en',
+            'status' => 'Publish',
+            'layout' => 'Full',
+            'id_menu' => 3,
+            'content' => "PT Transmarina Pelabuhan Indonesia",
+
+        ]);
+
+        DB::table('pages')->insert([
+
+            'user_id' => 1,
+            'title' => 'PT Hineni Resources Pte, Ltd',
+            'slug' => 'pt-hineni-resources-pte-ltd',
+            'lang' => 'en',
+            'status' => 'Publish',
+            'layout' => 'Full',
+            'id_menu' => 3,
+            'content' => "PT Hineni Resources Pte, Ltd",
+
+        ]);
 
         $laporan = [
             [

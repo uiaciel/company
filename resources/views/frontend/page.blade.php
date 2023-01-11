@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="page-header">
                         <div class="page-title">
-                            <h1 class="display-4 text-white  slideInDown mb-4">About Us</h1>
+                            <h1 class="display-4 text-white  slideInDown mb-4">{{ $post->menu->title }}</h1>
                         </div>
                         <nav aria-label="breadcrumb animated slideInDown">
                             <ol class="breadcrumb justify-content-center mb-0">

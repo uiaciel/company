@@ -121,14 +121,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-3 py-lg-0">
                 <a href="/" class="nav-item text-white nav-link active">{{ __('home.home') }}</a>
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link text-white dropdown-toggle"
                         data-bs-toggle="dropdown">{{ __('home.aboutus') }}</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="/about-us/company-profile" class="dropdown-item">Company Profile</a>
+                        @foreach ($pages->where('id_menu', 2) as $ab)
+                            <a href="{{ $ab->menu->slug }}/{{ $ab->slug }}"
+                                class="dropdown-item">{{ $ab->title }}</a>
+                        @endforeach
+                        {{-- <a href="/about-us/company-profile" class="dropdown-item">Company Profile</a>
                         <a href="/about-us/visi-mission" class="dropdown-item">Visi & Mision</a>
                         <a href="/about-us/message-from-director" class="dropdown-item">Message From Director</a>
-                        <a href="/about-us/company-policy" class="dropdown-item">Company Policy</a>
+                        <a href="/about-us/company-policy" class="dropdown-item">Company Policy</a> --}}
                     </div>
                 </div>
                 @if (App::getLocale() == 'id')
@@ -140,6 +145,10 @@
                     <a href="#" class="nav-link text-white dropdown-toggle"
                         data-bs-toggle="dropdown">{{ __('home.investorrelation') }}</a>
                     <div class="dropdown-menu bg-light m-0">
+                        @foreach ($pages->where('id_menu', 4) as $ir)
+                            <a href="{{ $ir->menu->slug }}/{{ $ir->slug }}"
+                                class="dropdown-item">{{ $ir->title }}</a>
+                        @endforeach
                         <a href="/category/prospektus" class="dropdown-item">Public Offering Prospectus</a>
                         <a href="/financial-reports" class="dropdown-item">Financial Report</a>
                         <a href="/share-price" class="dropdown-item">Share Price</a>
@@ -148,7 +157,10 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">ESG</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="/corporate-social-responsibility" class="dropdown-item">CSR</a>
+                        @foreach ($pages->where('id_menu', 5) as $esg)
+                            <a href="{{ $esg->menu->slug }}/{{ $esg->slug }}"
+                                class="dropdown-item">{{ $esg->title }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <a href="/category/career" class="nav-item text-white nav-link">{{ __('home.career') }}</a>

@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Doc;
 use App\Models\Report;
 use App\Models\Menu;
+use App\Models\Page;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Goutte\Client;
@@ -71,6 +72,7 @@ class ContentServiceProvider extends ServiceProvider
             $view->with([
                 'category' => Category::all(),
                 'menus' => Menu::all(),
+                'pages' => Page::all(),
                 'announs' => Announs::where('status', 'Publish')->limit(3)->get(),
                 'laporans' => Report::Orderby('date_gmt', 'desc')->where('status', 'Publish')->limit(4)->get(),
                 'financial' => $financial,

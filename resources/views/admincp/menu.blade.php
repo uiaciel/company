@@ -55,29 +55,31 @@
                                     <div class="ms-2 me-auto">
                                         <div class="fw-bold">{{ $menu->title }}</div>
                                         {{ $menu->slug }}
-                                    </div>
-                                    <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
-                                        action="{{ route('menu.destroy', $menu->id) }}" method="POST">
-
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#edit{{ $menu->id }}"
-                                            class="btn btn-sm btn-primary">EDIT</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                            class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
-                                    </form>
-
-                                </li>
-                            @empty
-                                <div class="list-group-item">
-                                    Data Post belum Tersedia.
-                                </div>
-                            @endforelse
-
-
+                                        @foreach ($menu->pages as $pag)
+                                <li>{{ $pag->slug }}</li>
+                            @endforeach
                         </div>
+                        <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
+                            action="{{ route('menu.destroy', $menu->id) }}" method="POST">
 
-                        {{-- <table class="table table-bordered">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#edit{{ $menu->id }}"
+                                class="btn btn-sm btn-primary">EDIT</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
+                        </form>
+
+                        </li>
+                    @empty
+                        <div class="list-group-item">
+                            Data Post belum Tersedia.
+                        </div>
+                        @endforelse
+
+
+                    </div>
+
+                    {{-- <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -90,9 +92,9 @@
 
                             </tbody>
                         </table> --}}
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
