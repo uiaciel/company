@@ -52,19 +52,7 @@ class ContentServiceProvider extends ServiceProvider
 
             $postpublish = Post::where('status', 'Publish')->where('type', 'Blog')->where('id_category', '!=', 3)->limit(6)->get();
             $pagepublish = Post::where('status', 'Publish')->where('type', 'Page')->get();
-            $modal = Post::where('status', 'Publish')->where('type', 'Announ')->orderBy('created_at', 'desc')->first();
-
-            $annual = Post::OrderBy('updated_at', 'desc')
-                ->where('status', 'Publish')
-                ->where('type', 'Report')
-                ->where('id_category', 4)
-                ->get();
-
-            $financial = Post::OrderBy('date_gmt', 'desc')
-                ->where('status', 'Publish')
-                ->where('type', 'Report')
-                ->where('id_category', 5)
-                ->get();
+            $modal = Announs::where('status', 'Publish')->orderBy('created_at', 'desc')->first();
 
 
 
@@ -75,10 +63,10 @@ class ContentServiceProvider extends ServiceProvider
                 'pages' => Page::all(),
                 'announs' => Announs::where('status', 'Publish')->limit(3)->get(),
                 'laporans' => Report::Orderby('date_gmt', 'desc')->where('status', 'Publish')->limit(4)->get(),
-                'financial' => $financial,
+
                 'pagepublish' => $pagepublish,
                 'docs' => Doc::all(),
-                'annual' => $annual,
+
                 'data' => $data,
                 'cal' => $cal,
                 'tanda' => $tanda,

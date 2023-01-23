@@ -57,9 +57,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">{{ __('admincp.status') }}</label>
+                                    <label for="" class="form-label fw-bold">Category</label>
                                     <select class="form-control @error('status') is-invalid @enderror" name="id_menu">
                                         @foreach ($menus as $menu)
+                                            @if ($loop->first)
+                                                @continue
+                                            @endif
                                             <option value="{{ $menu->id }}">{{ $menu->title }}</option>
                                         @endforeach
 

@@ -35,7 +35,22 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Setting;
+        $data->sitename = $request->sitename;
+        $data->tagline = $request->tagline;
+        $data->description = $request->description;
+        $data->url = $request->url;
+        $data->facebook = $request->facebook;
+        $data->instagram = $request->instagram;
+        $data->twitter = $request->twitter;
+        $data->linkedin = $request->linkedin;
+        $data->address = $request->address;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->save();
+
+        return redirect()->route('settings.index')
+            ->with('success', 'Setting updated successfully.');
     }
 
     /**

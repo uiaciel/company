@@ -66,6 +66,15 @@ class ReportController extends Controller
     public function update(Request $request, $id)
     {
 
+        $laporan = Report::find($id);
+        $laporan->user_id = Auth::id();
+        $laporan->title = $request->title;
+        $laporan->slug = Str::slug($request->title);
+        $laporan->category = $request->category;
+        $laporan->date_gmt = $request->date_gmt;
+        $laporan->status = $request->status;
+        $laporan->content = $request->content;
+
         if ($request->hasFile('files')) {
             $originName = $request->file('files')->getClientOriginalName();
             $slugName = str_replace(' ', '_', $originName);
@@ -76,17 +85,9 @@ class ReportController extends Controller
             $request->file('files')->move(public_path() . '/storage/files/', $fileName);
 
             $url = 'files/' . $fileName;
+            $laporan->pdf = $url;
         }
 
-        $laporan = Report::find($id);
-        $laporan->user_id = Auth::id();
-        $laporan->title = $request->title;
-        $laporan->slug = Str::slug($request->title);
-        $laporan->category = $request->category;
-        $laporan->date_gmt = $request->date_gmt;
-        $laporan->status = $request->status;
-        $laporan->content = $request->content;
-        $laporan->pdf = $url;
         $laporan->save();
 
         return redirect()->route('admincp.report.index')
@@ -104,7 +105,5 @@ class ReportController extends Controller
         return view('frontend.report', [
             'laps' => $laps
         ]);
-
-        return view('frontend.report');
     }
 }

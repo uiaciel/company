@@ -37,7 +37,7 @@
                                         <td>{{ $posts->status }}</td>
                                         <td>
                                             <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
-                                                action="{{ route('posts.destroy', $posts->id) }}" method="POST">
+                                                action="{{ route('pages.destroy', $posts->id) }}" method="POST">
                                                 <a href="{{ route('pages.edit', $posts->id) }}"
                                                     class="btn btn-sm btn-primary">{{ __('admincp.edit') }}</a>
                                                 @csrf

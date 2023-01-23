@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://kit.fontawesome.com/1bfbc97117.js" crossorigin="anonymous"></script>
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 </head>
 
-<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
+<body data-theme="dark" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
     <div id="app" class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -63,7 +64,8 @@
                                             class="sidebar-item {{ request()->is('admincp/category*') ? 'active' : '' }}">
                                             <a class="sidebar-link " href="{{ route('category.index') }}">
                                                 <i class="fa-solid fa-tags"></i>
-                                                <span class="align-middle">{{ __('admincp.category') }}</span>
+                                                <span class="align-middle">{{ __('admincp.category') }}
+                                                    {{ __('admincp.posts') }}</span>
                                                 {{-- <span class="sidebar-badge badge bg-primary">Category</span> --}}
                                             </a>
                                         </li>

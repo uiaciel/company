@@ -19,7 +19,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>{{ __('admincp.title') }}</th>
-                                    <th>Slug</th>
+                                    <th>Show in Homepage</th>
                                     <th>{{ __('admincp.status') }}</th>
                                     <th>{{ __('admincp.action') }}</th>
                                 </tr>
@@ -29,8 +29,7 @@
                                     <tr>
                                         <td scope="row">{{ $index + 1 }}</td>
                                         <td>{{ $posts->title }}</td>
-                                        <td><a
-                                                href="/{{ $posts->lang }}/{{ Str::lower($posts->type) }}/{{ $posts->slug }}">{{ $posts->slug }}</a>
+                                        <td><span class="badge text-bg-primary">Yes</span>
                                         </td>
                                         <td>{{ $posts->status }}</td>
                                         <td>

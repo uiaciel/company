@@ -176,20 +176,6 @@
                                     </div>
                                 @endif
 
-                                {{-- @if ($post->type === 'Report')
-                                <div class="mb-3">
-                                    <label class="form-label fw-2 fw-bold">PDF</label>
-                                    <input type="file" class="form-control @error('files') is-invalid @enderror"
-                                        name="files[]" id="files" multiple>
-
-                                    @error('files')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            @endif --}}
-
 
                                 @error('id_category')
                                     <div class="alert alert-danger mt-2">
@@ -197,13 +183,12 @@
                                     </div>
                                 @enderror
 
-                                <div class="mb-3">
+                                <div class="mb-3" hidden>
                                     <label for="" class="form-label fw-bold">TYPE</label>
                                     <select class="form-control @error('type') is-invalid @enderror" name="type">
                                         <option value="{{ $post->type }}">{{ $post->type }}</option>
                                         <option value="Blog">Blog</option>
-                                        <option value="Page">Page</option>
-                                        <option value="Announs">Announs</option>
+
                                     </select>
                                 </div>
 

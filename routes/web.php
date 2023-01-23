@@ -4,13 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-Route::get('hello/world', function () {
-    return "hello world is working";
-});
-
-Route::get('hello/{name}', function ($name) {
-    return "hello " . $name;
-});
 
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);

@@ -26,6 +26,12 @@ class AnnounController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+
+            'title' => 'required|string|max:255',
+
+        ]);
+
         $announ = new Announs;
         $announ->title = $request->title;
         $announ->slug = Str::slug($request->title);

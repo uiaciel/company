@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('sitename');
-            $table->string('tagline');
-            $table->string('description');
-            $table->string('url');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('twitter');
-            $table->string('linkedin');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('sitename')->nullable();
+            $table->string('tagline')->nullable();
+            $table->string('description')->nullable();
+            $table->string('url')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

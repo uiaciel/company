@@ -46,7 +46,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
-
+                                    <th>Posts</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -54,8 +54,8 @@
                                 @forelse ($category as $index => $category)
                                     <tr>
                                         <td scope="row">{{ $index + 1 }}</td>
-                                        <td>{{ $category->name }}</td>
-
+                                        <td>{{ $category->name }} </td>
+                                        <td>{{ $category->posts->count() }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="/category/{{ $category->slug }}" class="btn btn-sm btn-success"

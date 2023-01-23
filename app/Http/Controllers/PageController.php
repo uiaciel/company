@@ -35,6 +35,7 @@ class PageController extends Controller
             'lang' => 'required',
             'status' => 'required',
             'type' => 'required',
+
             // 'images' => 'required|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
 
@@ -142,5 +143,13 @@ class PageController extends Controller
             'post' => $post,
             'menu' => $slug
         ]);
+    }
+
+    public function destroy(Page $page)
+    {
+        $page->delete();
+
+        return redirect()->route('pages.index')
+            ->with('success', 'Data Berhasil Dihapus!');
     }
 }
