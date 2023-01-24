@@ -23,8 +23,8 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Judul</label>
                                     <input type="text" name="title"
-                                        class="form-control @error('title') is-invalid @enderror" placeholder=""
-                                        aria-describedby="helpId" value="{{ $page->title }}">
+                                        class="form-control @error('title') is-invalid @enderror" aria-describedby="helpId"
+                                        value="{{ $page->title }}">
                                     <small id="helpId" class="text-muted">URL :
                                         https://sumberglobalenergy.co.id/{{ $page->lang }}/{{ $page->slug }}</small>
                                 </div>
@@ -78,27 +78,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                @if ($page->type === 'Page')
-                                @else
-                                    <div class="form-group mb-3">
-                                        <label class="form-label fw-2 fw-bold">Image Features</label>
-                                        <input type="file" class="form-control @error('images') is-invalid @enderror"
-                                            name="images[]" id="images" multiple>
-                                        <!-- error message untuk title -->
-                                        @error('images')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        @foreach ($page->images as $image)
-                                            @if ($loop->first)
-                                                <img id="imgPreview" src="/storage/{{ $image->path }}" class="img-fluid">
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                @endif
+
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Language</label>
                                     <select class="form-control @error('lang') is-invalid @enderror" name="lang">
@@ -119,67 +99,27 @@
                                     </div>
                                 @enderror
 
-                                @if (empty($page->category))
-                                @else
-                                    <div class="mb-3">
-                                        <label for="" class="form-label fw-bold">Category</label>
-                                        <select class="form-control  @error('id_category') is-invalid @enderror"
-                                            name="id_category">
-                                            @if (empty($page->id_category))
-                                                <option value=""></option>
-                                            @else
-                                                <option value="{{ $page->category->id }}">{{ $page->category->name }}
-                                                </option>
+                                <div class="mb-3">
+                                    <label for="" class="form-label fw-bold">Category</label>
+                                    <select class="form-control @error('status') is-invalid @enderror" name="id_menu">
+                                        @foreach ($menus as $menu)
+                                            @if ($loop->first)
+                                                @continue
                                             @endif
-                                            @foreach ($category as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                @endif
+                                            <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+                                        @endforeach
 
-                                @if ($page->type === 'Report')
-                                    <div class="mb-3">
-                                        <label class="form-label fw-2 fw-bold">PDF</label>
-                                        <input type="file" class="form-control @error('files') is-invalid @enderror"
-                                            name="files[]" id="files" multiple>
-                                        <!-- error message untuk title -->
-                                        @error('files')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                @endif
-
-
-                                @error('id_category')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-
-                                @if ($page->type === 'Page')
-                                    <select class="form-control @error('type') is-invalid @enderror" name="type" hidden>
-                                        <option value="Page">Page</option>
                                     </select>
-                                @else
-                                    <div class="mb-3">
-                                        <label for="" class="form-label fw-bold">TYPE</label>
-                                        <select class="form-control @error('type') is-invalid @enderror" name="type">
-                                            <option value="{{ $page->type }}">{{ $page->type }}</option>
-                                            <option value="Blog">Blog</option>
-                                            <option value="Page">Page</option>
-                                            <option value="Announs">Announs</option>
-                                        </select>
-                                    </div>
-                                @endif
+                                </div>
 
-                                @error('type')
+
+                                @error('id_menu')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
+
+
 
 
 

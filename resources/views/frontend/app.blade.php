@@ -149,7 +149,7 @@
                             <a href="{{ $ir->menu->slug }}/{{ $ir->slug }}"
                                 class="dropdown-item">{{ $ir->title }}</a>
                         @endforeach
-                        <a href="/category/prospektus" class="dropdown-item">Public Offering Prospectus</a>
+                        <a href="/prospektus" class="dropdown-item">Public Offering Prospectus</a>
                         <a href="/financial-reports" class="dropdown-item">Financial Report</a>
                         <a href="/share-price" class="dropdown-item">Share Price</a>
                     </div>

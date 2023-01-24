@@ -20,7 +20,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>{{ __('admincp.title') }}</th>
-                                    <th>Category</th>
+
                                     <th>Tanggal Post</th>
                                     <th>Status</th>
 
@@ -32,7 +32,7 @@
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td>{{ $annual->title }}</td>
-                                        <td>{{ $annual->category }}</td>
+
                                         <td>{{ $annual->date_gmt }}</td>
                                         <td>{{ $annual->status }}</td>
                                         <td>
@@ -41,11 +41,11 @@
 
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#edit{{ $annual->id }}"
-                                                    class="btn btn-sm btn-primary">EDIT</a>
+                                                    class="btn btn-md btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
+                                                    class="btn btn-md btn-danger">{{ __('admincp.delete') }}</button>
                                             </form>
                                         </td>
                                         <!-- Modal -->
@@ -101,6 +101,9 @@
                                                                                 </option>
                                                                                 <option value="Financial Report">Financial
                                                                                     Report</option>
+                                                                                <option value="Public Offering Prospectus">
+                                                                                    Public Offering Prospectus
+                                                                                </option>
 
                                                                             </select>
                                                                         </div>
@@ -185,7 +188,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>{{ __('admincp.title') }}</th>
-                                <th>Category</th>
+
                                 <th>Tanggal Post</th>
                                 <th>Status</th>
 
@@ -197,7 +200,7 @@
                                 <tr>
                                     <td scope="row">{{ $loop->iteration }}</td>
                                     <td>{{ $financial->title }}</td>
-                                    <td>{{ $financial->category }}</td>
+
                                     <td>{{ $financial->date_gmt }}</td>
                                     <td>{{ $financial->status }}</td>
                                     <td>
@@ -206,11 +209,11 @@
 
                                             <a href="" data-bs-toggle="modal"
                                                 data-bs-target="#edit{{ $financial->id }}"
-                                                class="btn btn-sm btn-primary">EDIT</a>
+                                                class="btn btn-md btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="btn btn-sm btn-danger">{{ __('admincp.delete') }}</button>
+                                                class="btn btn-md btn-danger">{{ __('admincp.delete') }}</button>
                                         </form>
                                     </td>
                                     <!-- Modal -->
@@ -266,6 +269,9 @@
                                                                             </option>
                                                                             <option value="Financial Report">Financial
                                                                                 Report</option>
+                                                                            <option value="Public Offering Prospectus">
+                                                                                Public Offering Prospectus
+                                                                            </option>
 
                                                                         </select>
                                                                     </div>
@@ -327,8 +333,160 @@
                 @endforelse
                 </tbody>
                 </table>
+
+                <h3 class="mb-3 mt-3">Public Offering Prospectus</h3>
+                <table class="table table-bordered" id="data">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>{{ __('admincp.title') }}</th>
+
+                            <th>Tanggal Post</th>
+                            <th>Status</th>
+
+                            <th>{{ __('admincp.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($posts->where('category', 'Public Offering Prospectus') as $offering)
+                            <tr>
+                                <td scope="row">{{ $loop->iteration }}</td>
+                                <td>{{ $offering->title }}</td>
+
+                                <td>{{ $offering->date_gmt }}</td>
+                                <td>{{ $offering->status }}</td>
+                                <td>
+                                    <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
+                                        action="{{ route('posts.destroy', $offering->id) }}" method="POST">
+
+                                        <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#edit{{ $offering->id }}"
+                                            class="btn btn-md btn-primary">EDIT</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-md btn-danger">{{ __('admincp.delete') }}</button>
+                                    </form>
+                                </td>
+                                <!-- Modal -->
+                                <div class="modal fade" id="edit{{ $offering->id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-dark">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Edit
+                                                    Category</h5>
+                                                <button type="button" class="btn-close text-white"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('reports.update', $offering->id) }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="mb-3">
+                                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                                                                    class="img-fluid">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="inputEmail4">Title
+
+                                                                </label>
+                                                                <input type="text"
+                                                                    class="form-control @error('name') is-invalid @enderror"
+                                                                    name="name" value="{{ $offering->title }}">
+                                                            </div>
+                                                            @error('name')
+                                                                <div class="alert alert-danger mt-2">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+
+                                                            <div class="mb-3">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon1">Type</span>
+                                                                    <select
+                                                                        class="form-select  @error('id_category') is-invalid @enderror"
+                                                                        name="category">
+                                                                        <option value="{{ $offering->category }}">
+                                                                            {{ $offering->category }}
+                                                                        </option>
+                                                                        <option value="Annual Report">Annual Report
+                                                                        </option>
+                                                                        <option value="Financial Report">Financial
+                                                                            Report</option>
+                                                                        <option value="Public Offering Prospectus">Public
+                                                                            Offering Prospectus
+                                                                        </option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon1">Date</span>
+                                                                    <input type="date"
+                                                                        class="form-control @error('gmt_date') is-invalid @enderror"
+                                                                        name="date_gmt"
+                                                                        value="{{ $financial->date_gmt }}"
+                                                                        aria-describedby="helpId">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="inputEmail4">File PDF
+
+                                                                </label>
+                                                                <div class="input-group mb-3">
+
+                                                                    <input type="text" class="form-control"
+                                                                        value="{{ $financial->pdf }}"
+                                                                        aria-label="Text input with checkbox" readonly>
+                                                                    <button class="btn btn-outline-secondary"
+                                                                        type="button" id="button-addon2">X</button>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <input type="file" class="form-control"
+                                                                        name="files" id="inputGroupFile01">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                </div>
+
+                                        </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
             </div>
+            </tr>
+        @empty
+            <div class="alert alert-danger">
+                Data Post belum Tersedia.
+            </div>
+            @endforelse
+            </tbody>
+            </table>
         </div>
+    </div>
     </div>
     </div>
     </div>

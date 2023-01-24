@@ -63,7 +63,7 @@ class ContentServiceProvider extends ServiceProvider
                 'pages' => Page::all(),
                 'announs' => Announs::where('status', 'Publish')->limit(3)->get(),
                 'laporans' => Report::Orderby('date_gmt', 'desc')->where('status', 'Publish')->limit(4)->get(),
-
+                'publicoffering' => Report::Orderby('date_gmt', 'desc')->where('status', 'Publish')->where('category', 'Public Offering Prospectus')->limit(12)->get(),
                 'pagepublish' => $pagepublish,
                 'docs' => Doc::all(),
 

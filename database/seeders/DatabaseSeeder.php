@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'id_menu' => 2,
+            'date_gmt' => '2019-07-26',
             'layout' => 'Full',
             'content' => '<p>We have a vision to be a leading domestic coal trading from the first-class producers and ensure long term sufficiency of supply for our various customers, with excellent performance and first-class standards serving both international and domestic coal market. In order to achieve it we have commitment to provide customer satisfaction and strengthen the capital sources by hard work and strong team network.</p>
             <p>&nbsp;</p>
@@ -87,6 +88,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Visi Mission',
             'slug' => 'visi-mission',
             'lang' => 'en',
+            'date_gmt' => '2019-07-26',
             'status' => 'Publish',
             'id_menu' => 2,
             'layout' => 'Full',
@@ -100,6 +102,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Message from Director',
             'slug' => 'message-from-director',
             'lang' => 'en',
+            'date_gmt' => '2019-07-26',
             'status' => 'Publish',
             'id_menu' => 2,
             'layout' => 'Full',
@@ -115,6 +118,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Company Policy',
             'slug' => 'company-policy',
             'lang' => 'en',
+            'date_gmt' => '2019-07-26',
             'status' => 'Publish',
             'id_menu' => 2,
             'layout' => 'Full',
@@ -128,11 +132,12 @@ class DatabaseSeeder extends Seeder
             'title' => 'Corporate Social Responsibility',
             'slug' => 'corporate-social-responsibility',
             'lang' => 'en',
+            'date_gmt' => '2019-07-26',
             'status' => 'Publish',
             'layout' => 'Full',
             'id_menu' => 5,
             'content' => '<p>The Company&rsquo;s commitment to provide added value for the<br>community is realized through the implementation of the<br>Corporate Social Responsibility (CSR) program. In 2021, the<br>Company has implemented programs incorporated in Corporate<br>Social Responsibility with the following details:</p>
-            <p>Kurban in Eid al-Adha</p>',
+            <p>Kurban in Eid al-Adha</p><p><img class="image-center img-fluid" src="../../../storage/uploads/1674514769_image_2023-01-24_055928871.png" alt="Corporate Social Responsibility"></p>',
 
         ]);
 
@@ -238,6 +243,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'PT Sumber Mineral Global Abadi',
             'slug' => 'pt-sumber-mineral-global-abadi',
             'lang' => 'en',
+            'date_gmt' => '2019-07-26',
             'status' => 'Publish',
             'layout' => 'Full',
             'id_menu' => 3,
@@ -254,6 +260,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pt-mandau-batu-alam',
             'lang' => 'en',
             'status' => 'Publish',
+            'date_gmt' => '2019-07-26',
             'layout' => 'Full',
             'id_menu' => 3,
             'content' => "<p>Engaged in mining contractors for coaL and other minerals to support the company's trading activities.</p>",
@@ -268,6 +275,7 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'layout' => 'Full',
+            'date_gmt' => '2019-07-26',
             'id_menu' => 3,
             'content' => "PT Angkasa Nusa Graha",
 
@@ -280,6 +288,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pt-transmarina-pelabuhan-indonesia',
             'lang' => 'en',
             'status' => 'Publish',
+            'date_gmt' => '2019-07-26',
             'layout' => 'Full',
             'id_menu' => 3,
             'content' => "PT Transmarina Pelabuhan Indonesia",
@@ -294,10 +303,13 @@ class DatabaseSeeder extends Seeder
             'lang' => 'en',
             'status' => 'Publish',
             'layout' => 'Full',
+            'date_gmt' => '2019-07-26',
             'id_menu' => 3,
             'content' => "PT Hineni Resources Pte, Ltd",
 
         ]);
+
+
 
         $laporan = [
             [
@@ -306,7 +318,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'annual-report-2021',
                 'category' => 'Annual Report',
                 'image' => 'images/EckFvJqf3wgxZIaqL0Bq3SNauyc4CIhozEQQkqnP.png',
-                'date_gmt' => '2022-06-03',
+                'date_gmt' => '2022-09-15',
                 'status' => 'Publish',
                 'pdf' => 'files/1663346499[SGE]%20AR2021_Content.pdf'
 
@@ -317,7 +329,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'annual-report-2020',
                 'category' => 'Annual Report',
                 'image' => 'images/2tw4ChGjdZdkSe1iSJ4OYXBNmg15Jjiy2oUhMRqj.png',
-                'date_gmt' => '2022-05-03',
+                'date_gmt' => '2022-09-01',
                 'status' => 'Publish',
                 'pdf' => 'files/1663346235ANNUAL%20REPORT%202020.pdf'
 
@@ -328,7 +340,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'audited-annual-report-2017-2018-2019',
                 'category' => 'Annual Report',
                 'image' => 'images/tF9GfygOZiWlbw2WRON7MffN9xtGa0flOyDNwtIt.jpg',
-                'date_gmt' => '2022-04-03',
+                'date_gmt' => '2022-08-01',
                 'status' => 'Publish',
                 'pdf' => 'files/1663352567Audited%20annual%20report%202017-2018-2019.pdf'
 
@@ -339,7 +351,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-q2-2022',
                 'category' => 'Financial Report',
                 'image' => 'images/s93A3wVgI3YzNNAyTZ0gWzx5CEuDe0yduxYKZ5h6.jpg',
-                'date_gmt' => '2022-03-03',
+                'date_gmt' => '2022-09-19',
                 'status' => 'Publish',
                 'pdf' => 'files/1663381398Final%20Report%20Q2%202022.pdf'
 
@@ -350,7 +362,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-q1-2022',
                 'category' => 'Financial Report',
                 'image' => 'images/jvt3PY1c0lvXbvWa9AWLe16FzTwHk7PosWMVo1y8.jpg',
-                'date_gmt' => '2022-02-03',
+                'date_gmt' => '2022-09-18',
                 'status' => 'Publish',
                 'pdf' => 'files/1663381114Final%20Report%20Q1%202022.pdf'
 
@@ -361,7 +373,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-2021',
                 'category' => 'Financial Report',
                 'image' => 'images/zwNfuG5AMG2PMP5jFgiqAezMCx0oog4VSWY7NUag.jpg',
-                'date_gmt' => '2022-02-02',
+                'date_gmt' => '2022-09-16',
                 'status' => 'Publish',
                 'pdf' => 'files/1663380941Final%20Report%202021.pdf'
 
@@ -372,7 +384,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-q3-2021',
                 'category' => 'Financial Report',
                 'image' => 'images/Qz4ngycUwO9lNIOO0Q5x6tY1qaC0SOtN1IW13m4r.jpg',
-                'date_gmt' => '2022-02-01',
+                'date_gmt' => '2022-09-04',
                 'status' => 'Publish',
                 'pdf' => 'files/1663381532Final%20Report%20Q3%202021.pdf'
 
@@ -383,7 +395,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-q2-2021',
                 'category' => 'Financial Report',
                 'image' => 'images/F73FvSnssbYBcK5tgQ9WprQYX85AOqArdlZhnOD9.jpg',
-                'date_gmt' => '2022-01-03',
+                'date_gmt' => '2022-09-03',
                 'status' => 'Publish',
                 'pdf' => 'files/1663381275Final%20Report%20Q2%202021.pdf'
 
@@ -394,7 +406,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'final-report-q1-2021',
                 'category' => 'Financial Report',
                 'image' => 'images/zuQqyTUhdhSJ3x2q6FWnEtc2JOz1FDTvsZvnojYS.jpg',
-                'date_gmt' => '2022-01-02',
+                'date_gmt' => '2022-09-02',
                 'status' => 'Publish',
                 'pdf' => 'files/1663352763Final%20Report%20Q1%202021.pdf'
 
@@ -408,6 +420,18 @@ class DatabaseSeeder extends Seeder
                 'date_gmt' => '2022-01-01',
                 'status' => 'Publish',
                 'pdf' => 'files/1663380788Final%20Report%202020.pdf'
+
+            ],
+
+            [
+                'user_id' => 1,
+                'title' => 'Prospektus SGE Reg 3',
+                'slug' => 'prospektus-sge-reg-3',
+                'category' => 'Public Offering Prospectus',
+                'image' => 'images/m8uMAt4VIYdVwNCRs61xps6LixKzHE35ej9xgkA6.png',
+                'date_gmt' => '2021-12-01',
+                'status' => 'Publish',
+                'pdf' => 'files/1669709784_Prospektus-SGE-Reg-3-efektif-29-juli.pdf'
 
             ],
         ];

@@ -34,7 +34,7 @@ class PageController extends Controller
             'date_gmt' => 'required',
             'lang' => 'required',
             'status' => 'required',
-            'type' => 'required',
+
 
             // 'images' => 'required|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
@@ -124,8 +124,10 @@ class PageController extends Controller
         $post->id_menu = $request->id_menu;
         $post->date_gmt = $request->date_gmt;
         $post->status = $request->status;
-        $post->type = $request->type;
+
         $post->update();
+
+
 
 
 

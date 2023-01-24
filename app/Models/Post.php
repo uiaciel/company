@@ -26,16 +26,16 @@ class Post extends Model
     ];
     public function images()
     {
-     return $this->hasMany('App\Models\Image', 'post_id');
+        return $this->hasMany('App\Models\Image', 'post_id');
     }
 
     public function docs()
     {
-     return $this->hasMany('App\Models\Doc', 'post_id');
+        return $this->hasMany('App\Models\Doc', 'post_id');
     }
 
     public function category()
     {
-     return $this->belongsTo('App\Models\Category', 'id_category');
+        return $this->belongsTo('App\Models\Category', 'id_category');
     }
 }

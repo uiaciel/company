@@ -22,7 +22,7 @@ Route::get('/financial-reports', [App\Http\Controllers\ReportController::class, 
 Route::get('/esg/csr', function () {
     return view('frontend.csr');
 });
-Route::get('/publicoffering', function () {
+Route::get('/prospektus', function () {
     return view('frontend.publicoffering');
 });
 

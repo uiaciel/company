@@ -93,7 +93,7 @@
                         @csrf
                         <div class="row g-3">
                             <input type="date" id="date" class="form-control date" name="date_gmt" hidden>
-                            <input type="text" class="form-control" name="status" value="Send">
+                            <input type="text" class="form-control" name="status" value="Send" hidden>
 
                             <div class="col-md-6">
                                 <div class="form-floating">

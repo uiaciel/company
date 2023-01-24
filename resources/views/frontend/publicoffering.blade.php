@@ -6,22 +6,17 @@
 
                 <div class="col-md-8">
                     <div class="border-start border-5 border-primary ps-4 mb-5">
-                        <h1 class="display-6 mb-0">Media Center</h1>
+                        <h1 class="display-6 mb-0">Public Offering Prospectus</h1>
                     </div>
-                    @foreach ($blogs as $posts)
+                    @foreach ($publicoffering as $posts)
                         <div class="row mb-3">
-                            <div class="col-md-4">
-
-                                @foreach ($posts->images as $image)
-                                    @if ($loop->first)
-                                        <img class="img-fluid" src="/storage/{{ $image->path }}" alt="" />
-                                    @endif
-                                @endforeach
-                            </div>
-                            <div class="col-md-8">
-                                <h4><a href="/media/{{ $posts->slug }}">{{ $posts->title }}</a></h4>
-                                <p>{!! $posts->excerpt !!}</p>
-                                <p>Date Post : {{ $posts->date_gmt }}</p>
+                            <div class="card col-md-6">
+                                <img src="{{ $posts->image }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $posts->title }}</h5>
+                                    <p class="card-text">Date Post : {{ $posts->date_gmt }}</p>
+                                    <a href="{{ $posts->path }}" class="btn btn-primary">Download</a>
+                                </div>
                             </div>
                         </div>
                     @endforeach

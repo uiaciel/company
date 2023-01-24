@@ -52,7 +52,7 @@
                     <tbody>
                         @foreach ($laps->where('category', 'Annual Report') as $indexs => $laporan)
                             <tr>
-                                <td>{{ $indexs + 1 }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td><i class="fas fa-file-pdf"></i> {{ $laporan->title }}</td>
 
                                 <td><a href="/storage/{{ $laporan->pdf }}" target="_blank" class="btn btn-sm btn-primary"><i
@@ -87,7 +87,7 @@
                     <tbody>
                         @foreach ($laps->where('category', 'Financial Report') as $index => $financial)
                             <tr>
-                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td><i class="fas fa-file-pdf"></i> {{ $financial->title }}</td>
 
                                 <td> <a href="/storage/{{ $financial->pdf }}" target="_blank"
