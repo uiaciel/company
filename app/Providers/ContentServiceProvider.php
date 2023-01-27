@@ -50,7 +50,7 @@ class ContentServiceProvider extends ServiceProvider
             $data = $page->filter('span.p')->text();
             $up = $page->filter('span.v')->text();
 
-            $postpublish = Post::where('status', 'Publish')->where('type', 'Blog')->where('id_category', '!=', 3)->limit(6)->get();
+            $postpublish = Post::where('status', 'Publish')->where('type', 'Blog')->where('id_category', '!=', 3)->OrderBy('created_at', 'desc')->limit(6)->get();
             $pagepublish = Post::where('status', 'Publish')->where('type', 'Page')->get();
             $modal = Announs::where('status', 'Publish')->orderBy('created_at', 'desc')->first();
 

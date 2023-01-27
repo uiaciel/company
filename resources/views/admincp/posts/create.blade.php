@@ -53,7 +53,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" value="full" id="ck2a"
+                                            <input type="radio" class="custom-control-input" value="Full" id="ck2a"
                                                 name="layout">
                                             <label class="custom-control-label" for="ck2a">
                                                 <img src="/img/full-side.gif" alt="#" class="img-fluid">
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" value="sidebar" id="ck2b"
+                                            <input type="radio" class="custom-control-input" value="Sidebar" id="ck2b"
                                                 name="layout">
                                             <label class="custom-control-label" for="ck2b">
                                                 <img src="/img/page-side.gif" alt="#" class="img-fluid">
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" value="article" id="ck2c"
+                                            <input type="radio" class="custom-control-input" value="Artikel" id="ck2c"
                                                 name="layout">
                                             <label class="custom-control-label" for="ck2c">
                                                 <img src="/img/article-side.gif" alt="#" class="img-fluid">

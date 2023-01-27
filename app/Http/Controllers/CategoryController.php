@@ -66,7 +66,7 @@ class CategoryController extends Controller
     public function mediacenter()
     {
 
-        $post = Post::where('status', 'Publish')->where('type', 'Blog')->get();
+        $post = Post::where('status', 'Publish')->where('type', 'Blog')->OrderBy('date_gmt', 'desc')->get();
 
         return view('frontend.mediacenter', [
             'blogs' => $post

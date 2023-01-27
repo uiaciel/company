@@ -217,19 +217,12 @@ class PostController extends Controller
     public function showpost($slug)
     {
         $post = Post::with('category')->where('slug', $slug)->where('type', 'Blog')->first();
+        $other = Post::with('category')->where('type', 'Blog')->inRandomOrder()->limit(4)->get();
 
 
         return view('frontend.artikel', [
-            'post' => $post
+            'post' => $post,
+            'others' => $other,
         ]);
     }
-
-    // public function article($slug)
-    // {
-    //     $post = Post::where('slug_en', $slug)->first();
-
-    //     return view('frontend.article', [
-    //         'post' => $post
-    //     ]);
-    // }
 }

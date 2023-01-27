@@ -61,7 +61,8 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2a" name="ck2">
+                                            <input type="radio" class="custom-control-input" id="ck2a" value="Full"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2a">
                                                 <img src="/img/full-side.gif" alt="#" class="img-fluid">
                                             </label>
@@ -69,7 +70,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2b" name="ck2">
+                                            <input type="radio" class="custom-control-input" id="ck2b" value="Sidebar"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2b">
                                                 <img src="/img/page-side.gif" alt="#" class="img-fluid">
                                             </label>
@@ -77,7 +79,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="custom-control custom-radio image-checkbox">
-                                            <input type="radio" class="custom-control-input" id="ck2c" name="ck2">
+                                            <input type="radio" class="custom-control-input" value="Artikel" id="ck2c"
+                                                name="layout">
                                             <label class="custom-control-label" for="ck2c">
                                                 <img src="/img/article-side.gif" alt="#" class="img-fluid">
                                             </label>
@@ -111,7 +114,8 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Date</label>
                                     <input type="date" class="form-control @error('gmt_date') is-invalid @enderror"
-                                        value="{{ $post->date_gmt }}" name="date_gmt" aria-describedby="helpId" placeholder="">
+                                        value="{{ $post->date_gmt }}" name="date_gmt" aria-describedby="helpId"
+                                        placeholder="">
 
                                 </div>
                                 @error('date_gmt')

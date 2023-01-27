@@ -21,7 +21,8 @@
                             <div class="col-md-8">
                                 <h4><a href="/media/{{ $posts->slug }}">{{ $posts->title }}</a></h4>
                                 <p>{!! $posts->excerpt !!}</p>
-                                <p>Date Post : {{ $posts->date_gmt }}</p>
+                                <span>by: <a href="#">SGE</a> /
+                                    {{ \Carbon\Carbon::parse($posts->date_gmt)->toDayDateTimeString() }}</span>
                             </div>
                         </div>
                     @endforeach

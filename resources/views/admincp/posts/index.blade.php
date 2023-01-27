@@ -45,7 +45,7 @@
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="{{ route('posts.edit', $posts->id) }}"
                                                     class="btn btn-md btn-primary">{{ __('admincp.edit') }}</a>
-                                                <a href="/media/{{ $posts->slug }}"
+                                                <a href="/media/{{ $posts->slug }}" target="_blank"
                                                     class="btn btn-md btn-success">View</a>
 
                                                 <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
