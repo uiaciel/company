@@ -5,6 +5,8 @@
 /public/new-revisi
 /storage/*.key
 /vendor
+/database/migrations/seeders/CompanyProfile.php
+/database/migrations/seeders/DatabaseSeeder.php
 .env
 .env.backup
 .phpunit.result.cache

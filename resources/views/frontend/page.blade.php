@@ -6,7 +6,8 @@
                 <div class="row">
                     <div class="page-header">
                         <div class="page-title">
-                            <h1 class="display-4 text-white  slideInDown mb-4">{{ $post->menu->title }}</h1>
+                            <h1 class="display-4 text-white  slideInDown mb-4">
+                                {{ $post->title ?? '' }}</h1>
                         </div>
                         <nav aria-label="breadcrumb animated slideInDown">
                             <ol class="breadcrumb justify-content-center mb-0">
@@ -14,10 +15,10 @@
                                     <a class="text-white" href="#">Home</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a class="text-white" href="#">{{ $post->menu->title }}</a>
+                                    <a class="text-white" href="#">{{ $post->menu->title ?? '' }}</a>
                                 </li>
                                 <li class="breadcrumb-item text-white active" aria-current="page">
-                                    {{ $post->title }}
+                                    {{ $post->title ?? '' }}
                                 </li>
                             </ol>
                         </nav>
@@ -35,10 +36,10 @@
                         <div class="border-start border-5 border-primary ps-4 mb-5">
                             <h6 class="text-body text-uppercase mb-2">About Us</h6>
                             <h1 class="display-6 mb-0">
-                                {{ $post->title }}
+                                {{ $post->title ?? '' }}
                             </h1>
                         </div>
-                        {!! $post->content !!}
+                        {!! $post->content ?? '' !!}
                         <div class="mt-3">
 
                             {{-- @foreach ($post->images as $image)
