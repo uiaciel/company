@@ -535,7 +535,7 @@
                         <img src="/storage/{{ $modal->image }}" class="card-img-top">
 
                         <p class="text-center">
-                            <a href="" class="btn btn-primary mt-3">View More</a>
+                            {{ $modal->content }}
                         </p>
 
 
