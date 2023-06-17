@@ -54,10 +54,56 @@
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
-                <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="d-flex flex-sm-row flex-column justify-content-lg-between">
+                    <div class="team-item position-relative p-2">
+                        <img class="img-fluid" src="https://sumberglobalenergy.co.id/img/3.jpeg" alt="">
+                        <div class="team-text bg-white p-4">
+                            <h6><a href="/subsidiaries/pt-sumber-mineral-global-abadi" class="text-dark">PT Sumber Mineral
+                                    Global Abadi</a></h6>
+
+                        </div>
+                    </div>
+                    <div class="team-item position-relative p-2">
+                        <img class="img-fluid" src="https://sumberglobalenergy.co.id/img/3.jpeg" alt="">
+                        <div class="team-text bg-white p-4">
+                            <h6><a href="/subsidiaries/pt-mandau-batu-alam" class="text-dark">PT Mandau Batu Alam</a></h6>
+
+                        </div>
+                    </div>
+                    <div class="team-item position-relative p-2">
+                        <img class="img-fluid" src="https://sumberglobalenergy.co.id/img/3.jpeg" alt="">
+                        <div class="team-text bg-white p-4">
+                            <h6><a href="/subsidiaries/pt-angkasa-nusa-graha" class="text-dark">PT Angkasa Nusa Graha</a>
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="team-item position-relative p-2">
+                        <img class="img-fluid" src="https://sumberglobalenergy.co.id/img/3.jpeg" alt="">
+                        <div class="team-text bg-white p-4">
+                            <h6><a href="/subsidiaries/pt-transmarina-pelabuhan-indonesia" class="text-dark">PT Transmarina
+                                    Pelabuhan Indonesia</a></h6>
+
+                        </div>
+                    </div>
+                    <div class="team-item position-relative p-2">
+                        <img class="img-fluid" src="https://sumberglobalenergy.co.id/img/3.jpeg" alt="">
+                        <div class="team-text bg-white p-4">
+                            <h6><a href="/subsidiaries/pt-hineni-resources-pte-ltd" class="text-dark">PT Hineni Resources
+                                    Pte, Ltd</a></h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Team Start -->
@@ -77,7 +123,6 @@
                     @endforeach --}}
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
     <!-- Team End -->
@@ -89,7 +134,8 @@
                     <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px">
                         <img class="position-absolute w-100 h-100" src="/img/batubara-tank.jpeg" alt=""
                             style="object-fit: cover" />
-                        <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3" style="width: 200px; height: 200px">
+                        <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3"
+                            style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary h-100 p-3">
                                 <h1 class="text-white">18</h1>
                                 <h2 class="text-white">Years</h2>
@@ -250,158 +296,136 @@
                         <!-- <h6 class="text-body text-uppercase mb-2"></h6> -->
                         <h1 class="display-6 mb-0">{{ __('home.shareprice') }}
                         </h1>
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="border-start border-5 border-primary ps-4 mb-5">
-                                <!-- <h6 class="text-body text-uppercase mb-2"></h6> -->
-                                <h1 class="display-6 mb-0">{{ __('home.shareprice') }}
-                                </h1>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>PT. SUMBER GLOBAL ENERGY Tbk (SGER)</h5>
-                                    <h4>Rp.{{ $data }} @if ($tanda === '-')
-                                            <i class="fa fa-caret-down text-danger" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-caret-up text-primary" aria-hidden="true"></i>
-                                        @endif {{ $cal }} </h4>
-                                    <small>{{ $up }} <a href="/share-price" target="_blank">Detail</a></small>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5>PT. SUMBER GLOBAL ENERGY Tbk (SGER)</h5>
-                                        <h4>Rp.{{ $data }} @if ($tanda === '-')
-                                                <i class="fa fa-caret-down text-danger" aria-hidden="true"></i>
-                                            @else
-                                                <i class="fa fa-caret-up text-primary" aria-hidden="true"></i>
-                                            @endif {{ $cal }} </h4>
-                                        <small>{{ $up }} <a href="/share-price"
-                                                target="_blank">Detail</a></small>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>PT. SUMBER GLOBAL ENERGY Tbk (SGER)</h5>
+                            <h4>Rp.{{ $data }} @if ($tanda === '-')
+                                    <i class="fa fa-caret-down text-danger" aria-hidden="true"></i>
+                                @else
+                                    <i class="fa fa-caret-up text-primary" aria-hidden="true"></i>
+                                @endif {{ $cal }} </h4>
+                            <small>{{ $up }} <a href="/share-price" target="_blank">Detail</a></small>
                         </div>
                     </div>
-                </div>
-                <!-- Features End -->
-                <!-- Service Start -->
-                <div class="container-xxl py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="border-start border-5 border-primary ps-4">
-                                    <!--<h6 class="text-body text-uppercase mb-2">INVESTOR RELATION</h6>-->
-                                    <h1 class="display-6 mb-0">
-                                        <!--{{ __('home.financialreport') }}-->
-                                        Investor Relations
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-4 mt-4 justify-content-center">
-                            @foreach ($laporans as $laporan)
-                                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="service-item text-center bg-light overflow-hidden h-100">
-                                        <img src="/storage/{{ $laporan->image }}" class="img-fluid" />
 
-                                        <div class="service-text position-relative text-center h-100 p-4">
-                                            <h5 class="mb-3">{{ $laporan->title }}</h5>
-                                            <!-- <p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features End -->
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="border-start border-5 border-primary ps-4">
+                        <!--<h6 class="text-body text-uppercase mb-2">INVESTOR RELATION</h6>-->
+                        <h1 class="display-6 mb-0">
+                            <!--{{ __('home.financialreport') }}-->
+                            Investor Relations
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-4 justify-content-center">
+                @foreach ($laporans as $laporan)
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item text-center bg-light overflow-hidden h-100">
+                            <img src="/storage/{{ $laporan->image }}" class="img-fluid" />
+
+                            <div class="service-text position-relative text-center h-100 p-4">
+                                <h5 class="mb-3">{{ $laporan->title }}</h5>
+                                <!-- <p>
                                                                                                                 Tempor erat elitr rebum at clita dolor diam ipsum sit diam
                                                                                                                 amet diam et eos
                                                                                                               </p> -->
-                                            <a class="small" href="/storage/{{ $laporan->pdf }}"
-                                                target="_blank">DOWNLOAD<i class="fa fa-arrow-right ms-3"></i></a>
+                                <a class="small" href="/storage/{{ $laporan->pdf }}" target="_blank">DOWNLOAD<i
+                                        class="fa fa-arrow-right ms-3"></i></a>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
-                <div class="container-fluid my-5 py-5 wow fadeIn" data-wow-delay="0.1s"
-                    style="background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(/img/sge-banner.png) center center no-repeat;background-size: cover; visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="container text-center py-5">
-                        <h1 class="display-4 text-white  slideInDown mb-4">{{ __('home.vision') }}</h1>
-                        <p class="text-white">We have a vision to be a leading domestic coal trading from the first-class
-                            producers and
-                            ensure long term sufficiency of supply for our various customers, with excellent performance and
-                            first-class
-                            standards serving both international and domestic coal market. In order to achieve it we have
-                            commitment to
-                            provide customer satisfaction and strengthen the capital sources by hard work and strong team
-                            network.
-                        </p>
+    <div class="container-fluid my-5 py-5 wow fadeIn" data-wow-delay="0.1s"
+        style="background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(/img/sge-banner.png) center center no-repeat;background-size: cover; visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+        <div class="container text-center py-5">
+            <h1 class="display-4 text-white  slideInDown mb-4">{{ __('home.vision') }}</h1>
+            <p class="text-white">We have a vision to be a leading domestic coal trading from the first-class producers and
+                ensure long term sufficiency of supply for our various customers, with excellent performance and first-class
+                standards serving both international and domestic coal market. In order to achieve it we have commitment to
+                provide customer satisfaction and strengthen the capital sources by hard work and strong team network.
+            </p>
+        </div>
+    </div>
+
+    <!-- Appointment Start -->
+    <!-- Appointment End -->
+    <!-- BLOG Start -->
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-end mb-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="border-start border-5 border-primary ps-4">
+                        <h6 class="text-body text-uppercase mb-2">BLOGS</h6>
+                        <h1 class="display-6 mb-0">
+                            {{ __('home.newsupdate') }}
+                        </h1>
                     </div>
                 </div>
-
-                <!-- Appointment Start -->
-                <!-- Appointment End -->
-                <!-- BLOG Start -->
-                <!-- Service Start -->
-                <div class="container-xxl py-5">
-                    <div class="container">
-                        <div class="row g-5 align-items-end mb-5">
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="border-start border-5 border-primary ps-4">
-                                    <h6 class="text-body text-uppercase mb-2">BLOGS</h6>
-                                    <h1 class="display-6 mb-0">
-                                        {{ __('home.newsupdate') }}
-                                    </h1>
-                                </div>
-                            </div>
-                            <!-- <div class="col-lg-6 text-lg-end wow fadeInUp" data-wow-delay="0.3s">
+                <!-- <div class="col-lg-6 text-lg-end wow fadeInUp" data-wow-delay="0.3s">
                                                                                                           <a class="btn btn-primary py-3 px-5" href="">More Services</a>
                                                                                                         </div> -->
-                        </div>
-                        <div class="row g-4 justify-content-center">
-                            @foreach ($postpublish as $post)
-                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="service-item bg-light overflow-hidden h-100">
-                                        @foreach ($post->images as $image)
-                                            @if ($loop->first)
-                                                <img class="img-fluid" src="/storage/{{ $image->path }}"
-                                                    alt="" />
-                                            @endif
-                                        @endforeach
-                                        <div class="service-text position-relative text-center h-100 p-4">
-                                            <h5 class="mb-3">{{ $post->title }}</h5>
-                                            <p>
-                                                {{ $post->category->name }}
-                                            </p>
-                                            <a class="small" href="/media/{{ $post->slug }}">READ MORE<i
-                                                    class="fa fa-arrow-right ms-3"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                @foreach ($postpublish as $post)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item bg-light overflow-hidden h-100">
+                            @foreach ($post->images as $image)
+                                @if ($loop->first)
+                                    <img class="img-fluid" src="/storage/{{ $image->path }}" alt="" />
+                                @endif
                             @endforeach
+                            <div class="service-text position-relative text-center h-100 p-4">
+                                <h5 class="mb-3">{{ $post->title }}</h5>
+                                <p>
+                                    {{ $post->category->name }}
+                                </p>
+                                <a class="small" href="/media/{{ $post->slug }}">READ MORE<i
+                                        class="fa fa-arrow-right ms-3"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Service End -->
-                <!-- BLOG END -->
-                <div class="container-fluid appointment py-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="container py-5">
-                        <div class="row g-5">
-                            <div class="col-lg-9 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                                <div class="border-start border-5 border-primary ps-4 mb-5">
-                                    <h6 class="text-white text-uppercase mb-2">BUSINESS ACTIVITIES</h6>
-                                    <h1 class="display-6 text-white mb-0">
-                                        Large Trade in Solid, Liquid, Gas, Renewable Energy and Rare Earth Metals and
-                                        Minerals Mining in
-                                        Subsidiaries
-                                    </h1>
-                                </div>
-                                <!-- <p class="text-white mb-0">
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+    <!-- BLOG END -->
+    <div class="container-fluid appointment py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-9 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="border-start border-5 border-primary ps-4 mb-5">
+                        <h6 class="text-white text-uppercase mb-2">BUSINESS ACTIVITIES</h6>
+                        <h1 class="display-6 text-white mb-0">
+                            Large Trade in Solid, Liquid, Gas, Renewable Energy and Rare Earth Metals and Minerals Mining in
+                            Subsidiaries
+                        </h1>
+                    </div>
+                    <!-- <p class="text-white mb-0">
                                                                                                             Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
                                                                                                             diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
                                                                                                             lorem sit clita duo justo magna dolore erat amet
                                                                                                           </p> -->
-                            </div>
-                            <div class="col-lg-7 col-md-6 wow fadeIn" data-wow-delay="0.5s">
-                                <!-- <form>
+                </div>
+                <div class="col-lg-7 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                    <!-- <form>
                                                                                                             <div class="row g-3">
                                                                                                               <div class="col-sm-6">
                                                                                                                 <div class="form-floating">
@@ -461,13 +485,12 @@
                                                                                                               </div>
                                                                                                             </div>
                                                                                                           </form> -->
-                            </div>
-                            <div class="col-lg-7 col-md-6 wow fadeIn" data-wow-delay="0.5s"></div>
-                        </div>
-                    </div>
                 </div>
-                <!-- Testimonial Start -->
-                <!-- <div class="container-xxl py-5">
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Start -->
+    <!-- <div class="container-xxl py-5">
                                                                                                     <div class="container">
                                                                                                       <div class="row g-5">
                                                                                                         <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -540,34 +563,33 @@
                                                                                                       </div>
                                                                                                     </div>
                                                                                                   </div> -->
-                <!-- Testimonial End -->
-            </div>
-            <!-- Modal -->
-            @if (empty($modal->id))
-            @else
-                <div class="modal fade" id="modal{{ $modal->id }}" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{ __('home.announcement') }}
-                                    <small>{{ $modal->date_gmt }}</small>
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
+    <!-- Testimonial End -->
+    </div>
+    <!-- Modal -->
+    @if (empty($modal->id))
+    @else
+        <div class="modal fade" id="modal{{ $modal->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('home.announcement') }}
+                            <small>{{ $modal->date_gmt }}</small>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
 
-                                <img src="/storage/{{ $modal->image }}" class="card-img-top">
+                        <img src="/storage/{{ $modal->image }}" class="card-img-top">
 
-                                <p class="text-center">
-                                    {{ $modal->content }}
-                                </p>
+                        <p class="text-center">
+                            {{ $modal->content }}
+                        </p>
 
 
-                            </div>
-                        </div>
                     </div>
                 </div>
-            @endif
-        @endsection
+            </div>
+        </div>
+    @endif
+@endsection
