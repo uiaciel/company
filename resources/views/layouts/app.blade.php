@@ -2,51 +2,195 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>PT SUMBER GLOBAL ENERGY Tbk - {{ $data }}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+        content="coal trading, list of coal trading companies in india, top coal trading companies in the world, coal trading adalah, coal trading associate, coal trade australia, coal trading business, coal trading companies, coal trading companies in india, coal trading companies in indonesia, coal trading company profile, coal tradingview, coal trading exchange, ep coal trading, coal futures trading"
+        name="keywords" />
+    <meta
+        content="PT. Sumber Global Energy Tbk (SGER) didirikan pada tanggal 17 Maret 2008. Perusahaan bersama anak usahanya bergerak dalam bidang perdagangan besar bahan bakar padat, cair, gas, energi terbaru dan terbarukan serta pertambangan logam dan mineral tanah jarang (rare earth). Perusahaan memulai kegiatan operasionalnya pada tahun 2011"
+        name="description" />
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Template Stylesheet -->
+    <link href="/css/custom.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 
-    <title>PT. Sumber Mineral Global Abadi Tbk</title>
-    <meta name="title" content="PT. Sumber Mineral Global Abadi Tbk">
-    <meta name="description" content="{{ __('frontend.profil') }}">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sumbermineralglobalabadi.com/">
-    <meta property="og:title" content="PT. Sumber Mineral Global Abadi Tbk">
-    <meta property="og:description"
-        content="PT. Sumber Mineral Global Abadi has experience in the mineral business supported by qualified natural resources as well as professional human resources as our step to provide quality and sustainable products">
-    <meta property="og:image" content="{{ asset('img/header-SMGA.png') }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sumbermineralglobalabadi.com/">
-    <meta property="twitter:title" content="PT. Sumber Mineral Global Abadi Tbk">
-    <meta property="twitter:description"
-        content="PT. Sumber Mineral Global Abadi has experience in the mineral business supported by qualified natural resources as well as professional human resources as our step to provide quality and sustainable products">
-    <meta property="twitter:image" content="{{ asset('img/header-SMGA.png') }}">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    {{-- <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json"> --}}
-    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#712cf9">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
+        p {
+            color: black;
+        }
 
+        .bg-page-header {
+            position: relative;
+        }
+
+        .bg-page-header:after {
+            background: rgba(244, 99, 11, 0.92);
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .bg-page-header .page-header {
+            text-align: center;
+            border-bottom: none;
+            margin: 0;
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title h2 {
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* Solid Social Share Buttons */
+        .btn-social,
+        .btn-social:visited,
+        .btn-social:focus,
+        .btn-social:hover,
+        .btn-social:active {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity .15s ease-in-out;
+        }
+
+        .btn-social:hover,
+        .btn-social:active {
+            opacity: .75;
+        }
+
+        .btn-fb {
+            background-color: #3b5998;
+        }
+
+        .btn-tw {
+            background-color: #1da1f2;
+        }
+
+        .btn-in {
+            background-color: #0077b5;
+        }
+
+        .btn-gp {
+            background-color: #db4437;
+        }
+
+        .btn-rd {
+            background-color: #ff4500;
+        }
+
+        .btn-hn {
+            background-color: #ff4000;
+        }
+
+        /* Outline Social Share Buttons */
+        .btn-social-outline {
+            background-color: transparent;
+            background-image: none;
+            text-decoration: none;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+        }
+
+        .btn-fb-outline {
+            color: #3b5998;
+            border-color: #3b5998;
+        }
+
+        .btn-fb-outline:hover,
+        .btn-fb-outline:active {
+            color: #ffffff;
+            background-color: #3b5998;
+        }
+
+        .btn-tw-outline {
+            color: #1da1f2;
+            border-color: #1da1f2;
+        }
+
+        .btn-tw-outline:hover,
+        .btn-tw-outline:active {
+            color: #ffffff;
+            background-color: #1da1f2;
+        }
+
+        .btn-in-outline {
+            color: #0077b5;
+            border-color: #0077b5;
+        }
+
+        .btn-in-outline:hover,
+        .btn-in-outline:active {
+            color: #ffffff;
+            background-color: #0077b5;
+        }
+
+        .btn-gp-outline {
+            color: #db4437;
+            border-color: #db4437;
+        }
+
+        .btn-gp-outline:hover,
+        .btn-gp-outline:active {
+            color: #ffffff;
+            background-color: #db4437;
+        }
+
+        .btn-rd-outline {
+            color: #ff4500;
+            border-color: #ff4500;
+        }
+
+        .btn-rd-outline:hover,
+        .btn-rd-outline:active {
+            color: #ffffff;
+            background-color: #ff4500;
+        }
+
+        .btn-hn-outline {
+            color: #ff4000;
+            border-color: #ff4000;
+        }
+
+        .btn-hn-outline:hover,
+        .btn-hn-outline:active {
+            color: #ffffff;
+            background-color: #ff4000;
+        }
+
+        /* Fluid Styles */
+        .fluid {
+            display: flex;
+        }
+
+        .fluid a {
+            flex-grow: 1;
+            margin-right: 0.25rem;
+        }
+
+        .fluid a:last-child {
+            margin-right: 0rem;
+        }
     </style>
 </head>
 

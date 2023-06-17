@@ -39,25 +39,11 @@
 
 
                         </div>
-                        <img src="/storage/{{ $post->image->path }}" class="img-fluid mb-3">
 
-                        {{-- @foreach ($post->docs as $doc)
-                            @if ($loop->first)
-                                <a href="/storage/{{ $doc->path }}" target="_blank">Download</a>
-                            @endif
-                        @endforeach --}}
 
                         <div class="mt-2">
-                            {{-- <label>Tanggal Publish: {{$post->date_gmt}}</label> --}}
                             {!! $post->content !!}
                         </div>
-
-                        {{-- <div class="mb-3 d-flex justify-content-between">
-                            <h5><i class="fas fa-file-pdf"></i> filepdf.pdf</h5>
-
-                            <a href="/storage/aa" class="btn btn-sm btn-primary" target="_blank">Download</a>
-
-                        </div> --}}
 
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -77,7 +63,7 @@
 
                         @foreach ($others as $other)
                             <div class="card mb-3">
-                                <img src="/storage/{{ $other->image->path }}" class="card-img-top"
+                                <img src="/storage/{{ $other->image->path ?? '' }}" class="card-img-top"
                                     alt="{{ $other->title }}">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $other->title }}</h5>
@@ -141,25 +127,10 @@
 
 
                         </div>
-                        <img src="/storage/{{ $post->image->path }}" class="img-fluid mb-3">
-
-                        {{-- @foreach ($post->docs as $doc)
-                            @if ($loop->first)
-                                <a href="/storage/{{ $doc->path }}" target="_blank">Download</a>
-                            @endif
-                        @endforeach --}}
 
                         <div class="mt-2">
-                            {{-- <label>Tanggal Publish: {{$post->date_gmt}}</label> --}}
                             {!! $post->content !!}
                         </div>
-
-                        {{-- <div class="mb-3 d-flex justify-content-between">
-                            <h5><i class="fas fa-file-pdf"></i> filepdf.pdf</h5>
-
-                            <a href="/storage/aa" class="btn btn-sm btn-primary" target="_blank">Download</a>
-
-                        </div> --}}
 
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -218,7 +189,7 @@
 
 
                         </div>
-                        <img src="/storage/{{ $post->image->path }}" class="img-fluid mb-3">
+                        {{-- <img src="/storage/{{ $post->image->path ?? '' }}" class="img-fluid mb-3"> --}}
 
                         {{-- @foreach ($post->docs as $doc)
                             @if ($loop->first)
