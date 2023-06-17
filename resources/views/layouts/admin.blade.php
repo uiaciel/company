@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Admin Websytem SMGA</title>
+    <title>Admin Websytem PT. Sumber Global Energy Tbk</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -77,6 +77,34 @@
                                             </a>
                                         </li>
 
+                                        <li class="sidebar-item {{ request()->is('admincp/pages*') ? 'active' : '' }}">
+                                            <a class="sidebar-link " href="{{ route('pages.index') }}">
+                                                <i class="fa-solid fa-envelope"></i>
+                                                <span class="align-middle">Pages
+                                                </span>
+                                                {{-- <span class="sidebar-badge badge bg-primary">Category</span> --}}
+                                            </a>
+                                        </li>
+
+                                        <li
+                                            class="sidebar-item {{ request()->is('admincp/announs*') ? 'active' : '' }}">
+                                            <a class="sidebar-link " href="{{ route('announs.index') }}">
+                                                <i class="fa-solid fa-envelope"></i>
+                                                <span class="align-middle">Announcements
+                                                </span>
+                                                {{-- <span class="sidebar-badge badge bg-primary">Category</span> --}}
+                                            </a>
+                                        </li>
+
+                                        <li
+                                            class="sidebar-item {{ request()->is('admincp/reports*') ? 'active' : '' }}">
+                                            <a class="sidebar-link " href="{{ route('reports.index') }}">
+                                                <i class="fa-solid fa-envelope"></i>
+                                                <span class="align-middle">Reports
+                                                </span>
+                                                {{-- <span class="sidebar-badge badge bg-primary">Category</span> --}}
+                                            </a>
+                                        </li>
                                         <li
                                             class="sidebar-item {{ request()->is('admincp/contacts*') ? 'active' : '' }}">
                                             <a class="sidebar-link " href="{{ route('contacts.index') }}">
@@ -283,6 +311,7 @@
     </div>
     <!--wrapper end-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="/assets/app-light.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!--<script src="/tinymce/tinymce.min.js"></script>-->
@@ -336,7 +365,7 @@
                 "searchreplace visualblocks code fullscreen",
                 "insertdatetime media table contextmenu paste imagetools"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image ",
+            toolbar: "code | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image ",
             menubar: false,
             image_title: true,
             automatic_uploads: true,
@@ -423,6 +452,45 @@
             $('#data').DataTable();
         });
     </script>
+<<<<<<< HEAD
+    {{-- <script>
+=======
+    <script>
+>>>>>>> 0449ca9798027f9ba838cc592c3885ce3657dc01
+        var fixHelperModified = function(e, tr) {
+                var $originals = tr.children();
+                var $helper = tr.clone();
+                $helper.children().each(function(index) {
+                    $(this).width($originals.eq(index).width())
+                });
+                return $helper;
+            },
+            updateIndex = function(e, ui) {
+                $('td.index', ui.item.parent()).each(function(i) {
+                    $(this).html(i + 1);
+
+
+                });
+
+                $('td input.in', ui.item.parent()).each(function(i) {
+                    $(this).attr('value', i + 1);
+
+
+
+                });
+
+            };
+
+
+        $("#sort tbody").sortable({
+            helper: fixHelperModified,
+            stop: updateIndex
+        }).disableSelection();
+<<<<<<< HEAD
+    </script> --}}
+=======
+    </script>
+>>>>>>> 0449ca9798027f9ba838cc592c3885ce3657dc01
 </body>
 
 </html>

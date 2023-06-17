@@ -135,8 +135,22 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <img id="imgPreview" src="/storage/{{ $post->image->path }}" class="img-fluid">
+                                    @if ($post->image)
+                                        <a href="" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <img id="imgPreview" src="/storage/{{ $post->image->path ?? '' }}"
+                                                class="img-fluid">
+                                        </a>
+                                    @else
+                                        <img id="imgPreview"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                                            class="img-fluid">
+                                    @endif
                                 </div>
+
+
+
+
                                 <div class="mb-3">
                                     <label for="" class="form-label fw-bold">Language
                                     </label>
@@ -205,6 +219,40 @@
                         </div>
                     </div>
             </form>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Image View</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <img src="/storage/{{ $post->image->path ?? '' }}" class="img-fluid">
+                                <div class="d-grid gap-2">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            @if ($post->image)
+                                <form onsubmit="return confirm('{{ __('admincp.areyousure') }}');"
+                                    action="{{ route('images.destroy', $post->image->id) }}" method="POST">
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+
+                                </form>
+                            @endif
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endauth
     </div>
     </div>

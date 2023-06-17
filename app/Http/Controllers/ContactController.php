@@ -50,18 +50,6 @@ class ContactController extends Controller
             ->with('success', 'Message send successfully.');
     }
 
-    public function show(Contact $contact)
-    {
-        //
-    }
-
-
-
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
     public function destroy(Contact $contact)
     {
         $contact->delete();

@@ -136,10 +136,10 @@ class PostController extends Controller
 
             $path = $request->file('images')->storeAs('uploads', $fileName, ['disk' => 'public']);
 
-            $image = Image::find($post->image->id);
+            $image = new Image;
             $image->path = $path;
             $image->post_id = $id;
-            $image->update();
+            $image->save();
         }
 
         // if ($request->hasFile('files')) {

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->text('excerpt')->nullable();
             $table->string('status');
             $table->string('type'); //blogs, pages, announs, reports,
-            $table->string('layout'); //full, sidebar, artikel,
+            $table->string('layout')->default('Article'); //full, sidebar, artikel,
             $table->integer('count')->default(1);
             $table->timestamps();
         });

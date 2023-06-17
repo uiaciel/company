@@ -11,8 +11,9 @@
                             @csrf
                             {{-- <h2 class="fw-bold mb-2 text-uppercase ">Brand</h2> --}}
                             <div class="mb-5">
-                                <img src="/img/logo-icon-smga.png" class="img-fluid me-2" style=" width: 40px; ">
-                                <span class="fw-bold sitetitle"> PT. Sumber Mineral Global Abadi Tbk</span>
+                                <img src="https://sumberglobalenergy.co.id/img/LOGO-SGE-TBK.png" class="img-fluid me-2"
+                                    style=" width: 300px; ">
+                                {{-- <span class="fw-bold sitetitle"> PT. Sumber Global Energy Tbk</span> --}}
                             </div>
 
                             {{-- <p class=" mb-5">Please enter your login and password!</p> --}}

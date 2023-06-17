@@ -40,7 +40,7 @@
                                         </td>
 
 
-                                        <td>{{ $posts->status }}</td>
+                                        <td>{{ Str::upper($posts->status) }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="{{ route('posts.edit', $posts->id) }}"
