@@ -65,7 +65,6 @@
         }
 
         /* Solid Social Share Buttons */
-
         .btn-social,
         .btn-social:visited,
         .btn-social:focus,
@@ -106,7 +105,6 @@
         }
 
         /* Outline Social Share Buttons */
-
         .btn-social-outline {
             background-color: transparent;
             background-image: none;
