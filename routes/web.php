@@ -30,6 +30,9 @@ Route::get('locale/{locale}', function ($locale) {
 Route::get('/', [HomeController::class, 'index'])->name('homepages');
 Route::get('/announcements/{slug}', [AnnounController::class, 'show'])->name('announs.frontpage');
 Route::get('/prospektus', [HomeController::class, 'publicoffering']);
+Route::get('/share-price', function () {
+    return view('frontend.shareprice');
+});
 
 Auth::routes();
 Route::group(['middleware' => ['auth', 'can:isAdmin']], function () {

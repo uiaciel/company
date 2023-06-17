@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
                     // 'postpublish' => $postpublish
 
                     'abouts' => Menulink::where('menu_id', 1)->get(),
-
+                    'esgs' => Menulink::where('menu_id', 2)->get(),
                     'data' => $data,
                     'cal' => $cal,
                     'tanda' => $tanda,
