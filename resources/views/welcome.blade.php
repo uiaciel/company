@@ -15,19 +15,19 @@
                                         We are making world a Better place for you.
                                     </h1>
                                     <!-- <ol class="breadcrumb mb-4 pb-2">
-                                                                                                                                <li class="breadcrumb-item fs-5 text-light">
-                                                                                                                                  Trading & Mining
-                                                                                                                                </li>
-                                                                                                                                <li class="breadcrumb-item fs-5 text-light">
-                                                                                                                                  Coal, Gas, Liquid
-                                                                                                                                </li>
-                                                                                                                                <li class="breadcrumb-item fs-5 text-light">
-                                                                                                                                  Renewable Energy
-                                                                                                                                </li>
-                                                                                                                              </ol> -->
+                                                                                                                                    <li class="breadcrumb-item fs-5 text-light">
+                                                                                                                                      Trading & Mining
+                                                                                                                                    </li>
+                                                                                                                                    <li class="breadcrumb-item fs-5 text-light">
+                                                                                                                                      Coal, Gas, Liquid
+                                                                                                                                    </li>
+                                                                                                                                    <li class="breadcrumb-item fs-5 text-light">
+                                                                                                                                      Renewable Energy
+                                                                                                                                    </li>
+                                                                                                                                  </ol> -->
                                     <!-- <a href="" class="btn btn-sm btn-primary py-3 px-5"
-                                                                                                                                >More Details</a
-                                                                                                                              > -->
+                                                                                                                                    >More Details</a
+                                                                                                                                  > -->
                                 </div>
                             </div>
                         </div>
@@ -337,9 +337,9 @@
                             <div class="service-text position-relative text-center h-100 p-4">
                                 <h5 class="mb-3">{{ $laporan->title }}</h5>
                                 <!-- <p>
-                                                                                                                            Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                                                                                                            amet diam et eos
-                                                                                                                          </p> -->
+                                                                                                                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
+                                                                                                                                amet diam et eos
+                                                                                                                              </p> -->
                                 <a class="small" href="/storage/{{ $laporan->pdf }}" target="_blank">DOWNLOAD<i
                                         class="fa fa-arrow-right ms-3"></i></a>
 
@@ -379,18 +379,16 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-6 text-lg-end wow fadeInUp" data-wow-delay="0.3s">
-                                                                                                                      <a class="btn btn-primary py-3 px-5" href="">More Services</a>
-                                                                                                                    </div> -->
+                                                                                                                          <a class="btn btn-primary py-3 px-5" href="">More Services</a>
+                                                                                                                        </div> -->
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach ($postpublish as $post)
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item bg-light overflow-hidden h-100">
-                            @foreach ($post->images as $image)
-                                @if ($loop->first)
-                                    <img class="img-fluid" src="/storage/{{ $image->path }}" alt="" />
-                                @endif
-                            @endforeach
+
+                            <img class="img-fluid" src="/storage/{{ $post->image->path }}" alt="" />
+
                             <div class="service-text position-relative text-center h-100 p-4">
                                 <h5 class="mb-3">{{ $post->title }}</h5>
                                 <p>
@@ -419,150 +417,150 @@
                         </h1>
                     </div>
                     <!-- <p class="text-white mb-0">
-                                                                                                                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                                                                                                                        diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-                                                                                                                        lorem sit clita duo justo magna dolore erat amet
-                                                                                                                      </p> -->
+                                                                                                                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
+                                                                                                                            diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
+                                                                                                                            lorem sit clita duo justo magna dolore erat amet
+                                                                                                                          </p> -->
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeIn" data-wow-delay="0.5s">
                     <!-- <form>
-                                                                                                                        <div class="row g-3">
-                                                                                                                          <div class="col-sm-6">
-                                                                                                                            <div class="form-floating">
-                                                                                                                              <input
-                                                                                                                                type="text"
-                                                                                                                                class="form-control bg-dark border-0"
-                                                                                                                                id="gname"
-                                                                                                                                placeholder="Gurdian Name"
-                                                                                                                              />
-                                                                                                                              <label for="gname">Your Name</label>
+                                                                                                                            <div class="row g-3">
+                                                                                                                              <div class="col-sm-6">
+                                                                                                                                <div class="form-floating">
+                                                                                                                                  <input
+                                                                                                                                    type="text"
+                                                                                                                                    class="form-control bg-dark border-0"
+                                                                                                                                    id="gname"
+                                                                                                                                    placeholder="Gurdian Name"
+                                                                                                                                  />
+                                                                                                                                  <label for="gname">Your Name</label>
+                                                                                                                                </div>
+                                                                                                                              </div>
+                                                                                                                              <div class="col-sm-6">
+                                                                                                                                <div class="form-floating">
+                                                                                                                                  <input
+                                                                                                                                    type="email"
+                                                                                                                                    class="form-control bg-dark border-0"
+                                                                                                                                    id="gmail"
+                                                                                                                                    placeholder="Gurdian Email"
+                                                                                                                                  />
+                                                                                                                                  <label for="gmail">Your Email</label>
+                                                                                                                                </div>
+                                                                                                                              </div>
+                                                                                                                              <div class="col-sm-6">
+                                                                                                                                <div class="form-floating">
+                                                                                                                                  <input
+                                                                                                                                    type="text"
+                                                                                                                                    class="form-control bg-dark border-0"
+                                                                                                                                    id="cname"
+                                                                                                                                    placeholder="Child Name"
+                                                                                                                                  />
+                                                                                                                                  <label for="cname">Your Mobile</label>
+                                                                                                                                </div>
+                                                                                                                              </div>
+                                                                                                                              <div class="col-sm-6">
+                                                                                                                                <div class="form-floating">
+                                                                                                                                  <input
+                                                                                                                                    type="text"
+                                                                                                                                    class="form-control bg-dark border-0"
+                                                                                                                                    id="cage"
+                                                                                                                                    placeholder="Child Age"
+                                                                                                                                  />
+                                                                                                                                  <label for="cage">Service Type</label>
+                                                                                                                                </div>
+                                                                                                                              </div>
+                                                                                                                              <div class="col-12">
+                                                                                                                                <div class="form-floating">
+                                                                                                                                  <textarea class="form-control bg-dark border-0" placeholder="Leave a message here" id="message"
+                                                                                                                                      style="height: 100px"></textarea>
+                                                                                                                                  <label for="message">Message</label>
+                                                                                                                                </div>
+                                                                                                                              </div>
+                                                                                                                              <div class="col-12">
+                                                                                                                                <button class="btn btn-primary w-100 py-3" type="submit">
+                                                                                                                                  Get Appointment
+                                                                                                                                </button>
+                                                                                                                              </div>
                                                                                                                             </div>
-                                                                                                                          </div>
-                                                                                                                          <div class="col-sm-6">
-                                                                                                                            <div class="form-floating">
-                                                                                                                              <input
-                                                                                                                                type="email"
-                                                                                                                                class="form-control bg-dark border-0"
-                                                                                                                                id="gmail"
-                                                                                                                                placeholder="Gurdian Email"
-                                                                                                                              />
-                                                                                                                              <label for="gmail">Your Email</label>
-                                                                                                                            </div>
-                                                                                                                          </div>
-                                                                                                                          <div class="col-sm-6">
-                                                                                                                            <div class="form-floating">
-                                                                                                                              <input
-                                                                                                                                type="text"
-                                                                                                                                class="form-control bg-dark border-0"
-                                                                                                                                id="cname"
-                                                                                                                                placeholder="Child Name"
-                                                                                                                              />
-                                                                                                                              <label for="cname">Your Mobile</label>
-                                                                                                                            </div>
-                                                                                                                          </div>
-                                                                                                                          <div class="col-sm-6">
-                                                                                                                            <div class="form-floating">
-                                                                                                                              <input
-                                                                                                                                type="text"
-                                                                                                                                class="form-control bg-dark border-0"
-                                                                                                                                id="cage"
-                                                                                                                                placeholder="Child Age"
-                                                                                                                              />
-                                                                                                                              <label for="cage">Service Type</label>
-                                                                                                                            </div>
-                                                                                                                          </div>
-                                                                                                                          <div class="col-12">
-                                                                                                                            <div class="form-floating">
-                                                                                                                              <textarea class="form-control bg-dark border-0" placeholder="Leave a message here" id="message"
-                                                                                                                                  style="height: 100px"></textarea>
-                                                                                                                              <label for="message">Message</label>
-                                                                                                                            </div>
-                                                                                                                          </div>
-                                                                                                                          <div class="col-12">
-                                                                                                                            <button class="btn btn-primary w-100 py-3" type="submit">
-                                                                                                                              Get Appointment
-                                                                                                                            </button>
-                                                                                                                          </div>
-                                                                                                                        </div>
-                                                                                                                      </form> -->
+                                                                                                                          </form> -->
                 </div>
             </div>
         </div>
     </div>
     <!-- Testimonial Start -->
     <!-- <div class="container-xxl py-5">
-                                                                                                                <div class="container">
-                                                                                                                  <div class="row g-5">
-                                                                                                                    <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                                                                                                                      <div class="border-start border-5 border-primary ps-4 mb-5">
-                                                                                                                        <h6 class="text-body text-uppercase mb-2">Testimonial</h6>
-                                                                                                                        <h1 class="display-6 mb-0">What Our Happy Clients Say!</h1>
-                                                                                                                      </div>
-                                                                                                                      <p class="mb-4">
-                                                                                                                        Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat
-                                                                                                                        ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
-                                                                                                                        dolore erat amet
-                                                                                                                      </p>
-                                                                                                                      <div class="row g-4">
-                                                                                                                        <div class="col-sm-6">
-                                                                                                                          <div class="d-flex align-items-center mb-2">
-                                                                                                                            <i class="fa fa-users fa-2x text-primary flex-shrink-0"></i>
-                                                                                                                            <h1 class="ms-3 mb-0">123+</h1>
+                                                                                                                    <div class="container">
+                                                                                                                      <div class="row g-5">
+                                                                                                                        <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+                                                                                                                          <div class="border-start border-5 border-primary ps-4 mb-5">
+                                                                                                                            <h6 class="text-body text-uppercase mb-2">Testimonial</h6>
+                                                                                                                            <h1 class="display-6 mb-0">What Our Happy Clients Say!</h1>
                                                                                                                           </div>
-                                                                                                                          <h5 class="mb-0">Happy Clients</h5>
+                                                                                                                          <p class="mb-4">
+                                                                                                                            Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat
+                                                                                                                            ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
+                                                                                                                            dolore erat amet
+                                                                                                                          </p>
+                                                                                                                          <div class="row g-4">
+                                                                                                                            <div class="col-sm-6">
+                                                                                                                              <div class="d-flex align-items-center mb-2">
+                                                                                                                                <i class="fa fa-users fa-2x text-primary flex-shrink-0"></i>
+                                                                                                                                <h1 class="ms-3 mb-0">123+</h1>
+                                                                                                                              </div>
+                                                                                                                              <h5 class="mb-0">Happy Clients</h5>
+                                                                                                                            </div>
+                                                                                                                            <div class="col-sm-6">
+                                                                                                                              <div class="d-flex align-items-center mb-2">
+                                                                                                                                <i class="fa fa-check fa-2x text-primary flex-shrink-0"></i>
+                                                                                                                                <h1 class="ms-3 mb-0">123+</h1>
+                                                                                                                              </div>
+                                                                                                                              <h5 class="mb-0">Projects Done</h5>
+                                                                                                                            </div>
+                                                                                                                          </div>
                                                                                                                         </div>
-                                                                                                                        <div class="col-sm-6">
-                                                                                                                          <div class="d-flex align-items-center mb-2">
-                                                                                                                            <i class="fa fa-check fa-2x text-primary flex-shrink-0"></i>
-                                                                                                                            <h1 class="ms-3 mb-0">123+</h1>
+                                                                                                                        <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+                                                                                                                          <div class="owl-carousel testimonial-carousel">
+                                                                                                                            <div class="testimonial-item">
+                                                                                                                              <img
+                                                                                                                                class="img-fluid mb-4"
+                                                                                                                                src="img/testimonial-1.jpg"
+                                                                                                                                alt=""
+                                                                                                                              />
+                                                                                                                              <p class="fs-5">
+                                                                                                                                Dolores sed duo clita tempor justo dolor et stet lorem kasd
+                                                                                                                                labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
+                                                                                                                                et labore et tempor diam tempor erat.
+                                                                                                                              </p>
+                                                                                                                              <div
+                                                                                                                                class="bg-primary mb-3"
+                                                                                                                                style="width: 60px; height: 5px"
+                                                                                                                              ></div>
+                                                                                                                              <h5>Client Name</h5>
+                                                                                                                              <span>Profession</span>
+                                                                                                                            </div>
+                                                                                                                            <div class="testimonial-item">
+                                                                                                                              <img
+                                                                                                                                class="img-fluid mb-4"
+                                                                                                                                src="img/testimonial-2.jpg"
+                                                                                                                                alt=""
+                                                                                                                              />
+                                                                                                                              <p class="fs-5">
+                                                                                                                                Dolores sed duo clita tempor justo dolor et stet lorem kasd
+                                                                                                                                labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
+                                                                                                                                et labore et tempor diam tempor erat.
+                                                                                                                              </p>
+                                                                                                                              <div
+                                                                                                                                class="bg-primary mb-3"
+                                                                                                                                style="width: 60px; height: 5px"
+                                                                                                                              ></div>
+                                                                                                                              <h5>Client Name</h5>
+                                                                                                                              <span>Profession</span>
+                                                                                                                            </div>
                                                                                                                           </div>
-                                                                                                                          <h5 class="mb-0">Projects Done</h5>
                                                                                                                         </div>
                                                                                                                       </div>
                                                                                                                     </div>
-                                                                                                                    <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
-                                                                                                                      <div class="owl-carousel testimonial-carousel">
-                                                                                                                        <div class="testimonial-item">
-                                                                                                                          <img
-                                                                                                                            class="img-fluid mb-4"
-                                                                                                                            src="img/testimonial-1.jpg"
-                                                                                                                            alt=""
-                                                                                                                          />
-                                                                                                                          <p class="fs-5">
-                                                                                                                            Dolores sed duo clita tempor justo dolor et stet lorem kasd
-                                                                                                                            labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
-                                                                                                                            et labore et tempor diam tempor erat.
-                                                                                                                          </p>
-                                                                                                                          <div
-                                                                                                                            class="bg-primary mb-3"
-                                                                                                                            style="width: 60px; height: 5px"
-                                                                                                                          ></div>
-                                                                                                                          <h5>Client Name</h5>
-                                                                                                                          <span>Profession</span>
-                                                                                                                        </div>
-                                                                                                                        <div class="testimonial-item">
-                                                                                                                          <img
-                                                                                                                            class="img-fluid mb-4"
-                                                                                                                            src="img/testimonial-2.jpg"
-                                                                                                                            alt=""
-                                                                                                                          />
-                                                                                                                          <p class="fs-5">
-                                                                                                                            Dolores sed duo clita tempor justo dolor et stet lorem kasd
-                                                                                                                            labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
-                                                                                                                            et labore et tempor diam tempor erat.
-                                                                                                                          </p>
-                                                                                                                          <div
-                                                                                                                            class="bg-primary mb-3"
-                                                                                                                            style="width: 60px; height: 5px"
-                                                                                                                          ></div>
-                                                                                                                          <h5>Client Name</h5>
-                                                                                                                          <span>Profession</span>
-                                                                                                                        </div>
-                                                                                                                      </div>
-                                                                                                                    </div>
-                                                                                                                  </div>
-                                                                                                                </div>
-                                                                                                              </div> -->
+                                                                                                                  </div> -->
     <!-- Testimonial End -->
     </div>
     <!-- Modal -->
