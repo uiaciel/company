@@ -13,15 +13,10 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
-            $table->string('title');
-            $table->string('position')->nullable();
-=======
             $table->integer('parent')->default(0);
             $table->string('title');
             $table->string('link')->nullable();
             $table->string('order');
->>>>>>> 0449ca9798027f9ba838cc592c3885ce3657dc01
             $table->string('status')->default('Publish');
             $table->timestamps();
         });
