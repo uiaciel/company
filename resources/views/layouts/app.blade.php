@@ -256,8 +256,7 @@
                         data-bs-toggle="dropdown">{{ __('home.aboutus') }}</a>
                     <div class="dropdown-menu bg-light m-0">
                         @foreach ($abouts as $ab)
-                            <a href="{{ $ab->menu->slug }}/{{ $ab->slug }}"
-                                class="dropdown-item">{{ $ab->title }}</a>
+                            <a href="{{ $ab->link }}" class="dropdown-item">{{ $ab->title }}</a>
                         @endforeach
                         {{-- <a href="/about-us/company-profile" class="dropdown-item">Company Profile</a>
                         <a href="/about-us/visi-mission" class="dropdown-item">Visi & Mision</a>
@@ -287,8 +286,7 @@
                     <a href="#" class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">ESG</a>
                     <div class="dropdown-menu bg-light m-0">
                         @foreach ($esgs as $esg)
-                            <a href="{{ $esg->menu->slug }}/{{ $esg->slug }}"
-                                class="dropdown-item">{{ $esg->title }}</a>
+                            <a href="{{ $esg->link }}" class="dropdown-item">{{ $esg->title }}</a>
                         @endforeach
                     </div>
                 </div>
