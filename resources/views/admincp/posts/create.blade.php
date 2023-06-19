@@ -49,6 +49,11 @@
                                         {{ $message }}
                                     </div>
                                 @enderror --}}
+                                @error('layout')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <label for="" class="form-label fw-bold">Layout Option</label>
                                 <div class="row">
                                     <div class="col-md-3">

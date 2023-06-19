@@ -1,6 +1,7 @@
 <?php
 return [
     'posts' => 'Posts',
+    'post' => 'Artikel',
     'create' => 'Buat',
     'addcategory' => 'Tambah Kategori',
     'listposts' => 'Data Posting',
@@ -26,10 +27,10 @@ return [
     'areyousure' => 'Apakah Anda Sudah Yakin ?',
     'image' => 'Gambar',
     'contacts' => 'Pesan Masuk',
-    'update' => 'Update',
+    'update' => 'Perbarui',
 
-
-    'setting' => 'Pengaturan',
+    'settings' => 'Pengaturan',
+    'goto' => 'Kunjungi Website',
 
 
 

@@ -1,6 +1,7 @@
 <?php
 return [
     'posts' => 'Posts',
+    'post' => 'Post',
     'create' => 'Create',
     'addcategory' => 'Add Category',
     'listposts' => 'List Posts',
@@ -28,10 +29,7 @@ return [
     'contacts' => 'Contacts',
     'update' => 'Update',
 
-    'setting' => 'General Setting',
-
-
-
-
+    'settings' => 'General Setting',
+    'goto' => 'Go to Website',
 
 ];
